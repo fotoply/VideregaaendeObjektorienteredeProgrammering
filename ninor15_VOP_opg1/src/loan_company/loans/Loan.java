@@ -71,8 +71,18 @@ public abstract class Loan implements LoanInterface {
         return ID;
     }
 
+    /**
+     * Sets the interestRate for a given loan. Can only be set once and is considered final after being set.
+     * Must be larger than 0
+     * @param interestRate the interest rate for the loan
+     */
     protected void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
+        if (interestRate <= 0) {
+            throw new IllegalArgumentException("Loans cannot have an interest rate of less than or equal to 0");
+        }
+        if (this.interestRate == 0) {
+            this.interestRate = interestRate;
+        }
     }
 
     @Override

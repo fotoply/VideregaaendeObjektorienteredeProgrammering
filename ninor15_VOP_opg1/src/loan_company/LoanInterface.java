@@ -29,7 +29,10 @@ public interface LoanInterface {
             return timeInYears;
         }
     }
-    
+
+    /**
+     * Returns the total amount that will have to be paid at the end of the loan.
+     */
     double getTotal();
     double getInterestRate();
 
