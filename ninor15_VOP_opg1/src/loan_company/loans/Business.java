@@ -13,4 +13,9 @@ public class Business extends Loan {
         super(ID, loanHolderName, amount, duration);
         setInterestRate(getDiskonto()+ LoanInterface.COMPANY_RENT);
     }
+
+    @Override
+    public String toString() {
+        return "Business{}";
+    }
 }
