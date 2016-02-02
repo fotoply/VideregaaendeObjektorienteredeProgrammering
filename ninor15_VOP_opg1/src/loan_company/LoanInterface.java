@@ -8,12 +8,27 @@ package loan_company;
 public interface LoanInterface {
 
     static final String COMPANY = "Fuskes Finans Aps";
-    static final int SHORT_TERM = 1;
-    static final int MIDDLE_TERM = 3;
-    static final int LONG_TERM = 5;
-    static final double MAX_LOAN = 500000.00;
-    static final double PRIVATE_INTEREST = 5.0; // + diskonto
-    static final double BUSINESS_INTEREST = 4.0; // + diskonto
+    String currencyDenotation = "DKK";
+    int maxAmountLoanable = 500000;
+    double diskkonto = 0.0;
+
+    double personalRent = 0.05;
+    int personalCreationFee = 1000;
+
+    double companyRent = 0.04;
+
+    public enum LoanDuration {
+        SHORT_TERM(1), MIDDLE_TERM(3), LONG_TERM(5);
+        private int timeInYears;
+
+        LoanDuration(int timeInYears) {
+            this.timeInYears = timeInYears;
+        }
+
+        public int getTimeInYears() {
+            return timeInYears;
+        }
+    }
     
     double getTotal();
     void setInterestRate();
