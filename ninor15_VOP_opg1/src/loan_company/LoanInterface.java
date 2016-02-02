@@ -10,7 +10,7 @@ public interface LoanInterface {
     static final String COMPANY = "Fuskes Finans Aps";
     String currencyDenotation = "DKK";
     int maxAmountLoanable = 500000;
-    double diskkonto = 0.0;
+    double diskonto = 0.0;
 
     double personalRent = 0.05;
     int personalCreationFee = 1000;
@@ -31,7 +31,6 @@ public interface LoanInterface {
     }
     
     double getTotal();
-    void setInterestRate();
     double getInterestRate();
 
 }
