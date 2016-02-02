@@ -35,7 +35,7 @@ public abstract class Loan implements LoanInterface {
 
     @Override
     public double getTotal() {
-        return amount;
+        return amount*Math.pow(getInterestRate()+1,getDuration().getTimeInYears());
     }
 
     public double getDiskonto() {

@@ -16,6 +16,6 @@ public class Business extends Loan {
 
     @Override
     public String toString() {
-        return "Business{}";
+        return "Business loan: \n Amount: " + getAmount() + ", interest: " + getInterestRate() + ", total: " + getTotal();
     }
 }

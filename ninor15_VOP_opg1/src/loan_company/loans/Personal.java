@@ -17,6 +17,6 @@ public class Personal extends Loan {
 
     @Override
     public String toString() {
-        return "Personal{}";
+        return "Personal loan: \n Amount: " + getAmount() + ", interest: " + getInterestRate() + ", total: " + getTotal();
     }
 }
