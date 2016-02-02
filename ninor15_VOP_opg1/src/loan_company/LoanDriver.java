@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class LoanDriver
 {
-    public static final String LOAN_FILE_NAME = LoanInterface.COMPANY + ".txt";
+    public static final String LOAN_FILE_NAME = LoanInterface.COMPANY_NAME + ".txt";
     // Liste som skal indeholde de oprettede lån
     private List<LoanInterface> loans;
 

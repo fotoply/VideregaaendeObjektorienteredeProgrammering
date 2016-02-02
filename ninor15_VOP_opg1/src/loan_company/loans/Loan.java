@@ -15,10 +15,10 @@ public abstract class Loan implements LoanInterface {
     private LoanInterface.LoanDuration duration;
     private Date startedDate;
     private String loanHolderName;
-    private int ID;
+    private int loanHolderID;
 
-    public Loan(int ID, String loanHolderName, int amount, LoanDuration duration) {
-        this.ID = ID;
+    public Loan(int loanHolderID, String loanHolderName, int amount, LoanDuration duration) {
+        this.loanHolderID = loanHolderID;
         this.loanHolderName = loanHolderName;
 
         if (amount <= 0) {
@@ -67,8 +67,8 @@ public abstract class Loan implements LoanInterface {
         return loanHolderName;
     }
 
-    public int getID() {
-        return ID;
+    public int getLoanHolderID() {
+        return loanHolderID;
     }
 
     /**
@@ -93,7 +93,7 @@ public abstract class Loan implements LoanInterface {
                 ", duration=" + duration +
                 ", startedDate=" + startedDate +
                 ", loanHolderName='" + loanHolderName + '\'' +
-                ", ID=" + ID +
+                ", loanHolderID=" + loanHolderID +
                 '}';
     }
 }

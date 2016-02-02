@@ -7,7 +7,7 @@ package loan_company;
  */
 public interface LoanInterface {
 
-    String COMPANY = "Fuskes Finans Aps";
+    String COMPANY_NAME = "Fuskes Finans Aps";
     String CURRENCY_DENOTATION = "DKK";
     int MAX_AMOUNT_LOANABLE = 500000;
     double DISKONTO = 0.0;

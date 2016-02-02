@@ -17,6 +17,13 @@ public class Personal extends Loan {
 
     @Override
     public String toString() {
-        return "Personal loan: \n Amount: " + getAmount() + ", interest: " + getInterestRate() + ", total: " + getTotal();
+        return LoanInterface.COMPANY_NAME +
+                "\n- Personal loan -" +
+                "\nAccount:\t\t" + getLoanHolderID() +
+                "\nName:\t\t" + getLoanHolderName() +
+                "\nDate:\t\t" + getStartedDate().toString() +
+                "\nDuration:\t\t" + getDuration().getTimeInYears() + " years" +
+                "\nAmount:\t\t" + getAmount() +
+                "\nTotal:\t\t" + getTotal();
     }
 }
