@@ -10,24 +10,26 @@ import java.util.Date;
  * @author Niels Norberg
  */
 public abstract class Loan implements LoanInterface {
-    private int amount;
+    private int amountOwed;
+    private int amountLoaned;
     private double interestRate;
     private LoanInterface.LoanDuration duration;
     private Date startedDate;
     private String loanHolderName;
     private int loanHolderID;
 
-    public Loan(int loanHolderID, String loanHolderName, int amount, LoanDuration duration) {
+    public Loan(int loanHolderID, String loanHolderName, int amountLoaned, LoanDuration duration) {
         this.loanHolderID = loanHolderID;
         this.loanHolderName = loanHolderName;
 
-        if (amount <= 0) {
+        if (amountLoaned <= 0) {
             throw new IllegalArgumentException("You can't make a loan below 1");
         }
-        if(amount > LoanInterface.MAX_AMOUNT_LOANABLE) {
-            amount = LoanInterface.MAX_AMOUNT_LOANABLE;
+        if(amountLoaned > LoanInterface.MAX_AMOUNT_LOANABLE) {
+            amountLoaned = LoanInterface.MAX_AMOUNT_LOANABLE;
         }
-        this.amount = amount;
+        this.amountLoaned = amountLoaned;
+        this.amountOwed = amountLoaned;
 
         this.duration = duration;
         this.startedDate = new Date();
@@ -35,19 +37,23 @@ public abstract class Loan implements LoanInterface {
 
     @Override
     public double getTotal() {
-        return amount*Math.pow(getInterestRate()+1,getDuration().getTimeInYears());
+        return amountOwed *Math.pow(getInterestRate()+1,getDuration().getTimeInYears());
     }
 
     public double getDiskonto() {
         return LoanInterface.DISKONTO;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getAmountOwed() {
+        return amountOwed;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public int getAmountLoaned() {
+        return amountLoaned;
+    }
+
+    public void setAmountOwed(int amountOwed) {
+        this.amountOwed = amountOwed;
     }
 
     @Override
@@ -88,7 +94,7 @@ public abstract class Loan implements LoanInterface {
     @Override
     public String toString() {
         return "Loan{" +
-                "amount=" + amount +
+                "amountOwed=" + amountOwed +
                 ", interestRate=" + interestRate +
                 ", duration=" + duration +
                 ", startedDate=" + startedDate +

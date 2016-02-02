@@ -12,7 +12,7 @@ public class Personal extends Loan {
     public Personal(int ID, String loanHolderName, int amount, LoanDuration duration) {
         super(ID, loanHolderName, amount, duration);
         setInterestRate(getDiskonto()+ LoanInterface.PERSONAL_RENT);
-        setAmount(getAmount()+LoanInterface.PERSONAL_CREATION_FEE);
+        setAmountOwed(getAmountLoaned()+LoanInterface.PERSONAL_CREATION_FEE);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Personal extends Loan {
                 "\nName:\t\t" + getLoanHolderName() +
                 "\nDate:\t\t" + getStartedDate().toString() +
                 "\nDuration:\t\t" + getDuration().getTimeInYears() + " years" +
-                "\nAmount:\t\t" + getAmount() +
+                "\nAmount:\t\t" + getAmountLoaned() +
                 "\nTotal:\t\t" + getTotal();
     }
 }

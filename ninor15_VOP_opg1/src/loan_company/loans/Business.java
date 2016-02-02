@@ -22,7 +22,7 @@ public class Business extends Loan {
                 "\nName:\t\t" + getLoanHolderName() +
                 "\nDate:\t\t" + getStartedDate().toString() +
                 "\nDuration:\t\t" + getDuration().getTimeInYears() + " years" +
-                "\nAmount:\t\t" + getAmount() +
+                "\nAmount:\t\t" + getAmountLoaned() +
                 "\nTotal:\t\t" + getTotal();
     }
 }
