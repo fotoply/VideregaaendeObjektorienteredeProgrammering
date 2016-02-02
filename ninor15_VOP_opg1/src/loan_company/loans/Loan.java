@@ -20,8 +20,14 @@ public abstract class Loan implements LoanInterface {
     public Loan(int ID, String loanHolderName, int amount, LoanDuration duration) {
         this.ID = ID;
         this.loanHolderName = loanHolderName;
-        this.amount = amount;
+        if (amount <= 0) {
+            throw new IllegalArgumentException("You can't make a loan below 1");
+        }
+        if(amount > LoanInterface.MAX_AMOUNT_LOANABLE) {
+            amount = LoanInterface.MAX_AMOUNT_LOANABLE;
+        }
         this.duration = duration;
+        this.amount = amount;
         this.startedDate = new Date();
     }
 
@@ -31,7 +37,7 @@ public abstract class Loan implements LoanInterface {
     }
 
     public double getDiskonto() {
-        return LoanInterface.diskonto;
+        return LoanInterface.DISKONTO;
     }
 
     public int getAmount() {

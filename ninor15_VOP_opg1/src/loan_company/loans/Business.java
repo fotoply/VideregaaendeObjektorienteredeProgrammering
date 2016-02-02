@@ -11,6 +11,6 @@ public class Business extends Loan {
 
     public Business(int ID, String loanHolderName, int amount, LoanDuration duration) {
         super(ID, loanHolderName, amount, duration);
-        setInterestRate(getDiskonto()+ LoanInterface.companyRent);
+        setInterestRate(getDiskonto()+ LoanInterface.COMPANY_RENT);
     }
 }

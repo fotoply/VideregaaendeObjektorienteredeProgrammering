@@ -7,15 +7,15 @@ package loan_company;
  */
 public interface LoanInterface {
 
-    static final String COMPANY = "Fuskes Finans Aps";
-    String currencyDenotation = "DKK";
-    int maxAmountLoanable = 500000;
-    double diskonto = 0.0;
+    String COMPANY = "Fuskes Finans Aps";
+    String CURRENCY_DENOTATION = "DKK";
+    int MAX_AMOUNT_LOANABLE = 500000;
+    double DISKONTO = 0.0;
 
-    double personalRent = 0.05;
-    int personalCreationFee = 1000;
+    double PERSONAL_RENT = 0.05;
+    int PERSONAL_CREATION_FEE = 1000;
 
-    double companyRent = 0.04;
+    double COMPANY_RENT = 0.04;
 
     public enum LoanDuration {
         SHORT_TERM(1), MIDDLE_TERM(3), LONG_TERM(5);
