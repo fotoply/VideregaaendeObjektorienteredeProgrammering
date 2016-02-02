@@ -1,5 +1,7 @@
 package loan_company.loans;
 
+import loan_company.LoanInterface;
+
 /**
  * Created 2/2/16
  *
@@ -7,5 +9,8 @@ package loan_company.loans;
  */
 public class Business extends Loan {
 
-
+    public Business(int ID, String loanHolderName, int amount, LoanDuration duration) {
+        super(ID, loanHolderName, amount, duration);
+        setInterestRate(getDiskonto()+ LoanInterface.companyRent);
+    }
 }
