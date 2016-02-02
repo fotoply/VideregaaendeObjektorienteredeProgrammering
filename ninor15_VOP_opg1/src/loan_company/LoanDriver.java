@@ -4,6 +4,10 @@
  */
 package loan_company;
 
+import loan_company.loans.Business;
+import loan_company.loans.Personal;
+
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,17 +28,17 @@ public class LoanDriver
         loans = new ArrayList<>();
     }
 
-    public void addPersonalLoan(int loanId, String name, int amount, int term)
+    public void addPersonalLoan(int loanId, String name, int amount, LoanInterface.LoanDuration term)
     {
         // Fjern udkommenteringen herunder når PersonalLoan er implementeret
-        //loans.add(new PersonalLoan(loanId, name, amount, term));
+        loans.add(new Personal(loanId, name, amount, term));
 
     }
 
-    public void addBusinessLoan(int loanId, String name, int amount, int term)
+    public void addBusinessLoan(int loanId, String name, int amount, LoanInterface.LoanDuration term)
     {
        // Fjern udkommenteringen herunder når BusinessLoan er implementeret
-        //loans.add(new BusinessLoan(loanId, name, amount, term));
+        loans.add(new Business(loanId, name, amount, term));
 
     }
 
@@ -95,13 +99,22 @@ public class LoanDriver
 
                 System.out.println("Indtast løbetid (1,  3 eller 5 år):");
                 int term = scanner.nextInt();
+                LoanInterface.LoanDuration duration;
+
+                if (term == 3) {
+                    duration = LoanInterface.LoanDuration.MIDDLE_TERM;
+                } else if(term == 5) {
+                    duration = LoanInterface.LoanDuration.LONG_TERM;
+                } else {
+                    duration = LoanInterface.LoanDuration.SHORT_TERM;
+                }
 
                 if (type == 1)
                 { // Privatlån valgt
-                    loanDriver.addPersonalLoan(loanCount++, name, amount, term);
+                    loanDriver.addPersonalLoan(loanCount++, name, amount, duration);
                 } else if (type == 2)
                 { // Forretningslån valgt
-                    loanDriver.addBusinessLoan(loanCount++, name, amount, term);
+                    loanDriver.addBusinessLoan(loanCount++, name, amount, duration);
                 } else
                 {  // Fejl
                     System.out.println("Ukendt lånetype!!!");

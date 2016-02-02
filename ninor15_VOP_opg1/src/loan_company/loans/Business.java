@@ -18,10 +18,10 @@ public class Business extends Loan {
     public String toString() {
         return LoanInterface.COMPANY_NAME +
                 "\n- Business loan -" +
-                "\nAccount:\t\t" + getLoanHolderID() +
+                "\nAccount:\t" + getLoanHolderID() +
                 "\nName:\t\t" + getLoanHolderName() +
                 "\nDate:\t\t" + getStartedDate().toString() +
-                "\nDuration:\t\t" + getDuration().getTimeInYears() + " years" +
+                "\nDuration:\t" + getDuration().getTimeInYears() + " years" +
                 "\nAmount:\t\t" + getAmountLoaned() +
                 "\nTotal:\t\t" + getTotal();
     }
