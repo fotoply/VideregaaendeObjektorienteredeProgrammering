@@ -102,4 +102,9 @@ public abstract class Loan implements LoanInterface {
                 ", loanHolderID=" + loanHolderID +
                 '}';
     }
+
+    @Override
+    public String getLoanType() {
+        return "Loan";
+    }
 }

@@ -59,8 +59,9 @@ public class LoanDriver
             writer = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, true)));
             for (LoanInterface loan: loans) {
                 String lineToWrite = loan.getLoanHolderID() + "," + loan.getLoanHolderName() +
-                        "," + loan.;
-
+                        "," + loan.getLoanType() + "," + loan.getAmountOwed() + "," +
+                        loan.getDuration().getTimeInYears() + "," + loan.getStartedDate().toString();
+                writer.println(lineToWrite);
                 writer.flush();
             }
 
