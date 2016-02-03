@@ -1,6 +1,4 @@
-package loan_company.loans;
-
-import loan_company.LoanInterface;
+package loan_company.model.loans;
 
 /**
  * Created 2/2/16

@@ -1,6 +1,6 @@
-package loan_company.loans;
+package loan_company.model.loans;
 
-import loan_company.LoanInterface;
+import loan_company.model.LoanInterface;
 
 import java.util.Date;
 

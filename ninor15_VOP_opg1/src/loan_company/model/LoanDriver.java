@@ -2,14 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package loan_company;
+package loan_company.model;
 
-import loan_company.loans.Business;
-import loan_company.loans.Loan;
-import loan_company.loans.Personal;
+import loan_company.model.loans.Business;
+import loan_company.model.loans.Personal;
 
 import java.io.*;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

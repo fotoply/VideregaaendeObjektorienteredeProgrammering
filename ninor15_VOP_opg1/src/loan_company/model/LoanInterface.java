@@ -1,4 +1,4 @@
-package loan_company;
+package loan_company.model;
 
 import java.util.Date;
 
