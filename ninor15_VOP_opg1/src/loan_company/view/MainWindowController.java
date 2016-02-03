@@ -5,7 +5,11 @@ package loan_company.view;/**
  */
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MainWindowController extends Application {
 
@@ -14,7 +18,11 @@ public class MainWindowController extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("MainWindow.fxml"));
+        primaryStage.setScene(new Scene(loader.load()));
+        primaryStage.show();
 
     }
 }
