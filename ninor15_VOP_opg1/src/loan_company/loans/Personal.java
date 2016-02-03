@@ -17,7 +17,7 @@ public class Personal extends Loan {
 
     @Override
     public String toString() {
-        return COMPANY_NAME +
+        return  "\n" + COMPANY_NAME +
                 "\n- Personal loan -" +
                 "\nAccount:\t" + getLoanHolderID() +
                 "\nName:\t\t" + getLoanHolderName() +

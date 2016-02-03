@@ -58,10 +58,10 @@ public class LoanDriver
         try {
             writer = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, true)));
             for (LoanInterface loan: loans) {
-                String lineToWrite = loan.getLoanHolderID() + "," + loan.getLoanHolderName() +
-                        "," + loan.getLoanType() + "," + loan.getAmountOwed() + "," +
-                        loan.getDuration().getTimeInYears() + "," + loan.getStartedDate().toString();
-                writer.println(lineToWrite);
+                //String lineToWrite = loan.getLoanHolderID() + "," + loan.getLoanHolderName() +
+                //        "," + loan.getLoanType() + "," + loan.getAmountOwed() + "," +
+                //        loan.getDuration().getTimeInYears() + "," + loan.getStartedDate().getTime();
+                writer.print(loan.toString());
                 writer.flush();
             }
 
@@ -79,7 +79,18 @@ public class LoanDriver
         // Returner det læste som en String.
         // Hint: Benyt en StringBuilder til at bygge den endelige string med
         //       Husk at tilføjr linjeskifte efter hver læst linje.
-        return "Ikke implementeret endnu!";
+        try {
+            Scanner fileScanner = new Scanner(new File(LOAN_FILE_NAME));
+            StringBuilder text = new StringBuilder();
+            while (fileScanner.hasNextLine()) {
+                text.append(fileScanner.nextLine());
+                text.append("\n");
+            }
+            return text.toString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "Fejl i læsning af fil";
     }
 
     public static void main(String[] args)
