@@ -39,6 +39,7 @@ public class MainWindowController extends Application {
     @FXML
     private ToggleGroup durationToggleGroup;
 
+
     @FXML
     void openFileClicked(ActionEvent event) {
         FileChooser openFileDialog = new FileChooser();
