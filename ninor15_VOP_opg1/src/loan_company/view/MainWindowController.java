@@ -9,13 +9,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import loan_company.model.LoanDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainWindowController extends Application {
 
@@ -39,6 +43,13 @@ public class MainWindowController extends Application {
     void openFileClicked(ActionEvent event) {
         FileChooser openFileDialog = new FileChooser();
         File file = openFileDialog.showOpenDialog(primaryStage);
+
+        if(file == null) {
+            Logger.getGlobal().log(Level.INFO,"No file chosen");
+            return;
+        }
+
+        openLoanTextArea.setText(driver.readFromFile(file));
     }
 
     @FXML
@@ -46,7 +57,11 @@ public class MainWindowController extends Application {
 
     }
 
+    @FXML
+    private TextArea openLoanTextArea;
+
     Stage primaryStage;
+    LoanDriver driver = new LoanDriver();
 
     @Override
     public void start(Stage primaryStage) throws IOException {
