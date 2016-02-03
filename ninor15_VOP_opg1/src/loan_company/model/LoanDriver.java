@@ -82,7 +82,7 @@ public class LoanDriver {
 
         loanDriver.writeToFile();
 
-        System.out.println("\nFrom File:\n" + loanDriver.readFromFile());
+        System.out.println("\nFrom File:\n" + loanDriver.readFromFile(new File(LOAN_FILE_NAME)));
     }
 
     public void addPersonalLoan(int loanId, String name, int amount, LoanInterface.LoanDuration term) {
@@ -124,13 +124,13 @@ public class LoanDriver {
     }
 
     //Implementeres i opgave B
-    public String readFromFile() {
+    public String readFromFile(File loanFile) {
         // Benyt en Scanner til at læse filen ved navn LOAN_FILE_NAME
         // Returner det læste som en String.
         // Hint: Benyt en StringBuilder til at bygge den endelige string med
         //       Husk at tilføjr linjeskifte efter hver læst linje.
         try {
-            Scanner fileScanner = new Scanner(new File(LOAN_FILE_NAME));
+            Scanner fileScanner = new Scanner(loanFile);
             StringBuilder text = new StringBuilder();
             while (fileScanner.hasNextLine()) {
                 text.append(fileScanner.nextLine());
