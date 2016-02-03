@@ -11,12 +11,12 @@ public class Business extends Loan {
 
     public Business(int ID, String loanHolderName, int amount, LoanDuration duration) {
         super(ID, loanHolderName, amount, duration);
-        setInterestRate(getDiskonto()+ LoanInterface.COMPANY_RENT);
+        setInterestRate(getDiskonto()+ COMPANY_RENT);
     }
 
     @Override
     public String toString() {
-        return LoanInterface.COMPANY_NAME +
+        return COMPANY_NAME +
                 "\n- Business loan -" +
                 "\nAccount:\t" + getLoanHolderID() +
                 "\nName:\t\t" + getLoanHolderName() +

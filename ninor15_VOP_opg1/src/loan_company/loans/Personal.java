@@ -11,13 +11,13 @@ public class Personal extends Loan {
 
     public Personal(int ID, String loanHolderName, int amount, LoanDuration duration) {
         super(ID, loanHolderName, amount, duration);
-        setInterestRate(getDiskonto()+ LoanInterface.PERSONAL_RENT);
-        setAmountOwed(getAmountLoaned()+LoanInterface.PERSONAL_CREATION_FEE);
+        setInterestRate(getDiskonto()+ PERSONAL_RENT);
+        setAmountOwed(getAmountLoaned()+PERSONAL_CREATION_FEE);
     }
 
     @Override
     public String toString() {
-        return LoanInterface.COMPANY_NAME +
+        return COMPANY_NAME +
                 "\n- Personal loan -" +
                 "\nAccount:\t" + getLoanHolderID() +
                 "\nName:\t\t" + getLoanHolderName() +

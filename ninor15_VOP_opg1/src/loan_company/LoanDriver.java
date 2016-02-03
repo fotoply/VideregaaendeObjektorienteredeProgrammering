@@ -5,8 +5,10 @@
 package loan_company;
 
 import loan_company.loans.Business;
+import loan_company.loans.Loan;
 import loan_company.loans.Personal;
 
+import java.io.*;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +52,21 @@ public class LoanDriver
     //Implementeres i opgave B
     public void writeToFile()
     {
-        // Indholdet af Listen loans skal skrives i filen med navnet LOAN_FILE_NAME
-        // Se Kap 10 i BigJava
+        File saveFile = new File(LOAN_FILE_NAME);
+        PrintWriter writer = null;
+
+        try {
+            writer = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, true)));
+            for (LoanInterface loan: loans) {
+                String line = "";
+            }
+            writer.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            writer.close();
+        }
     }
 
     //Implementeres i opgave B
