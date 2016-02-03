@@ -5,6 +5,7 @@ package loan_company.view;/**
  */
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,6 +32,16 @@ public class MainWindowController extends Application {
 
     @FXML
     private ToggleGroup durationToggleGroup;
+
+    @FXML
+    void openFileClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveToFileClicked(ActionEvent event) {
+
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
