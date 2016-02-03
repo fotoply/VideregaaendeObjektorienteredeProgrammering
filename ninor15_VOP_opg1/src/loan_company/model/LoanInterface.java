@@ -3,9 +3,8 @@ package loan_company.model;
 import java.util.Date;
 
 /**
- *
  * @author erso  Created on 03-11-2009, 10:02:34
- *  Updated for VOP 2.sem F15 05-02-2015
+ *         Updated for VOP 2.sem F15 05-02-2015
  */
 public interface LoanInterface {
 
@@ -19,6 +18,13 @@ public interface LoanInterface {
 
     double COMPANY_RENT = 0.04;
 
+    /**
+     * Returns the total amount that will have to be paid at the end of the loan.
+     */
+    double getTotal();
+
+    double getInterestRate();
+
     public enum LoanDuration {
         SHORT_TERM(1), MIDDLE_TERM(3), LONG_TERM(5);
         private int timeInYears;
@@ -31,19 +37,5 @@ public interface LoanInterface {
             return timeInYears;
         }
     }
-
-    /**
-     * Returns the total amount that will have to be paid at the end of the loan.
-     */
-    double getTotal();
-    double getInterestRate();
-
-    int getAmountOwed();
-    int getAmountLoaned();
-    int getLoanHolderID();
-    String getLoanHolderName();
-    Date getStartedDate();
-    LoanDuration getDuration();
-    String getLoanType();
 
 }

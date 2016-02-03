@@ -9,13 +9,13 @@ public class Personal extends Loan {
 
     public Personal(int ID, String loanHolderName, int amount, LoanDuration duration) {
         super(ID, loanHolderName, amount, duration);
-        setInterestRate(getDiskonto()+ PERSONAL_RENT);
-        setAmountOwed(getAmountLoaned()+PERSONAL_CREATION_FEE);
+        setInterestRate(getDiskonto() + PERSONAL_RENT);
+        setAmountOwed(getAmountLoaned() + PERSONAL_CREATION_FEE);
     }
 
     @Override
     public String toString() {
-        return  "\n" + COMPANY_NAME +
+        return "\n" + COMPANY_NAME +
                 "\n- Personal loan -" +
                 "\nAccount:\t" + getLoanHolderID() +
                 "\nName:\t\t" + getLoanHolderName() +
@@ -23,10 +23,5 @@ public class Personal extends Loan {
                 "\nDuration:\t" + getDuration().getTimeInYears() + " years" +
                 "\nAmount:\t\t" + getAmountLoaned() +
                 "\nTotal:\t\t" + getTotal();
-    }
-
-    @Override
-    public String getLoanType() {
-        return "Personal";
     }
 }

@@ -25,7 +25,7 @@ public abstract class Loan implements LoanInterface {
         if (amountLoaned <= 0) {
             throw new IllegalArgumentException("You can't make a loan below 1");
         }
-        if(amountLoaned > MAX_AMOUNT_LOANABLE) {
+        if (amountLoaned > MAX_AMOUNT_LOANABLE) {
             amountLoaned = MAX_AMOUNT_LOANABLE;
         }
         this.amountLoaned = amountLoaned;
@@ -37,7 +37,7 @@ public abstract class Loan implements LoanInterface {
 
     @Override
     public double getTotal() {
-        return amountOwed *Math.pow(getInterestRate()+1,getDuration().getTimeInYears());
+        return amountOwed * Math.pow(getInterestRate() + 1, getDuration().getTimeInYears());
     }
 
     public double getDiskonto() {
@@ -48,17 +48,32 @@ public abstract class Loan implements LoanInterface {
         return amountOwed;
     }
 
-    public int getAmountLoaned() {
-        return amountLoaned;
-    }
-
     public void setAmountOwed(int amountOwed) {
         this.amountOwed = amountOwed;
+    }
+
+    public int getAmountLoaned() {
+        return amountLoaned;
     }
 
     @Override
     public double getInterestRate() {
         return interestRate;
+    }
+
+    /**
+     * Sets the interestRate for a given loan. Can only be set once and is considered final after being set.
+     * Must be larger than 0
+     *
+     * @param interestRate the interest rate for the loan
+     */
+    protected void setInterestRate(double interestRate) {
+        if (interestRate <= 0) {
+            throw new IllegalArgumentException("Loans cannot have an interest rate of less than or equal to 0");
+        }
+        if (this.interestRate == 0) {
+            this.interestRate = interestRate;
+        }
     }
 
     public LoanDuration getDuration() {
@@ -77,20 +92,6 @@ public abstract class Loan implements LoanInterface {
         return loanHolderID;
     }
 
-    /**
-     * Sets the interestRate for a given loan. Can only be set once and is considered final after being set.
-     * Must be larger than 0
-     * @param interestRate the interest rate for the loan
-     */
-    protected void setInterestRate(double interestRate) {
-        if (interestRate <= 0) {
-            throw new IllegalArgumentException("Loans cannot have an interest rate of less than or equal to 0");
-        }
-        if (this.interestRate == 0) {
-            this.interestRate = interestRate;
-        }
-    }
-
     @Override
     public String toString() {
         return "Loan{" +
@@ -101,10 +102,5 @@ public abstract class Loan implements LoanInterface {
                 ", loanHolderName='" + loanHolderName + '\'' +
                 ", loanHolderID=" + loanHolderID +
                 '}';
-    }
-
-    @Override
-    public String getLoanType() {
-        return "Loan";
     }
 }
