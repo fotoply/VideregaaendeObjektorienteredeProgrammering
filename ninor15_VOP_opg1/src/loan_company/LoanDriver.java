@@ -58,9 +58,11 @@ public class LoanDriver
         try {
             writer = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, true)));
             for (LoanInterface loan: loans) {
-                String line = "";
+                String lineToWrite = loan.getLoanHolderID() + "," + loan.getLoanHolderName() +
+                        "," + loan.;
+
+                writer.flush();
             }
-            writer.flush();
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package loan_company;
 
+import java.util.Date;
+
 /**
  *
  * @author erso  Created on 03-11-2009, 10:02:34
@@ -35,5 +37,13 @@ public interface LoanInterface {
      */
     double getTotal();
     double getInterestRate();
+
+    int getAmountOwed();
+    int getAmountLoaned();
+    int getLoanHolderID();
+    String getLoanHolderName();
+    Date getStartedDate();
+    LoanDuration getDuration();
+    String getLoanType();
 
 }

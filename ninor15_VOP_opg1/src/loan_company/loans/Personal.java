@@ -26,4 +26,9 @@ public class Personal extends Loan {
                 "\nAmount:\t\t" + getAmountLoaned() +
                 "\nTotal:\t\t" + getTotal();
     }
+
+    @Override
+    public String getLoanType() {
+        return "Personal";
+    }
 }
