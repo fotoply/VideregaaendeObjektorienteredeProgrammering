@@ -24,7 +24,7 @@
                           </rowConstraints>
                            <children>
                               <Button mnemonicParsing="false" onAction="#openFileClicked" text="Open file" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="openLoanTextArea" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
