@@ -6,17 +6,15 @@ package loan_company.view;/**
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Dialog;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import loan_company.control.LoanDriver;
 import loan_company.control.MainDriver;
-import org.omg.CORBA.MARSHAL;
+import loan_company.model.LoanInterface;
 
 import java.io.File;
 import java.util.logging.Level;
@@ -29,28 +27,55 @@ public class MainWindowController {
     @FXML
     private TextField amountTextField;
     @FXML
+    private RadioButton personalToggleButton;
+
+    @FXML
     private ToggleGroup typeToggleGroup;
+
+    @FXML
+    private RadioButton businessToggleButton;
+
+    @FXML
+    private RadioButton shortToggleButton;
+
     @FXML
     private ToggleGroup durationToggleGroup;
+
+    @FXML
+    private RadioButton mediumToggleButton;
+
+    @FXML
+    private RadioButton longToggleButton;
     @FXML
     private TextArea openLoanTextArea;
 
-    private LoanDriver driver;
+    private LoanDriver loanDriver;
     private Stage primaryStage;
 
     @FXML
     void initialize() {
-        driver = MainDriver.getINSTANCE().getDriver();
+        loanDriver = MainDriver.getINSTANCE().getDriver();
         primaryStage = MainDriver.getINSTANCE().getPrimaryStage();
 
         amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            verifyAmountField(oldValue,newValue);
+        });
+    }
+
+    private void verifyAmountField(String oldValue, String newValue) {
+        if (newValue == "") {
+
+        } else {
             try {
                 Integer.parseInt(newValue);
+                if (amountTextField.getStyleClass().contains("error")) {
+                    amountTextField.getStyleClass().remove("error");
+                }
             } catch (NumberFormatException e) {
                 amountTextField.setText(oldValue);
-                amountTextField.getBorder().getStrokes().get(0).
+                amountTextField.getStyleClass().add("error");
             }
-        });
+        }
     }
 
     @FXML
@@ -63,7 +88,7 @@ public class MainWindowController {
             return;
         }
 
-        openLoanTextArea.setText(driver.readFromFile(file));
+        openLoanTextArea.setText(loanDriver.readFromFile(file));
     }
 
     @FXML
@@ -75,19 +100,34 @@ public class MainWindowController {
             Logger.getGlobal().log(Level.INFO, "No file selected");
         }
 
-        driver.writeToFile(file);
+        loanDriver.writeToFile(file);
     }
 
     @FXML
     void createLoanClicked(ActionEvent event) {
         if (isDataValid()) {
+            LoanInterface.LoanDuration duration = LoanInterface.LoanDuration.SHORT_TERM;
 
-        } else {
+            if(mediumToggleButton.isSelected()) {
+                duration = LoanInterface.LoanDuration.MIDDLE_TERM;
+            } else if(longToggleButton.isSelected()) {
+                duration = LoanInterface.LoanDuration.LONG_TERM;
+            }
+
+            if(businessToggleButton.isSelected()) {
+                loanDriver.addBusinessLoan(MainDriver.loanID++,nameTextField.getText(),Integer.parseInt(amountTextField.getText()),duration);
+            } else {
+                loanDriver.addPersonalLoan(MainDriver.loanID++,nameTextField.getText(),Integer.parseInt(amountTextField.getText()),duration);
+            }
+
+
+        } /*else {
             Dialog alertDialog = new Dialog();
             alertDialog.setTitle("Invalid data");
             alertDialog.setHeaderText("");
-            alertDialog.setContentText("Please enter only valid data");
-        }
+            alertDialog.setContentText("Please enter only valid data.\nAll fields will have to be filled");
+            alertDialog.show();
+        }*/
     }
 
     private boolean isDataValid() {

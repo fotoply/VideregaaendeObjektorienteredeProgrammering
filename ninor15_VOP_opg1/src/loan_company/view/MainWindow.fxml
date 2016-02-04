@@ -51,7 +51,7 @@
                            </rowConstraints>
                            <children>
                               <TextField fx:id="nameTextField" GridPane.columnIndex="1" />
-                              <TextField fx:id="amountTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="amountTextField" stylesheets="@MainWindow.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.halignment="RIGHT" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
@@ -102,7 +102,7 @@
                                  </rowConstraints>
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#saveToFileClicked" text="Save to file" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                    <Button mnemonicParsing="false" text="Create loan" GridPane.halignment="CENTER" />
+                                    <Button mnemonicParsing="false" onAction="#createLoanClicked" text="Create loan" GridPane.halignment="CENTER" />
                                  </children>
                               </GridPane>
                            </children>

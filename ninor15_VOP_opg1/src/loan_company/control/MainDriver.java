@@ -22,7 +22,7 @@ public class MainDriver extends Application {
         MainDriver.INSTANCE = this;
         this.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("MainWindow.fxml"));
+        loader.setLocation(getClass().getResource("../view/MainWindow.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
 
@@ -30,6 +30,7 @@ public class MainDriver extends Application {
 
     Stage primaryStage;
     LoanDriver driver = new LoanDriver();
+    public static int loanID = 123123123;
 
     private static MainDriver INSTANCE;
 
