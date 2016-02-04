@@ -46,7 +46,7 @@ public class MainWindowController extends Application {
         File file = openFileDialog.showOpenDialog(primaryStage);
 
         if(file == null) {
-            Logger.getGlobal().log(Level.INFO,"No file chosen");
+            Logger.getGlobal().log(Level.INFO,"No file selected");
             return;
         }
 
@@ -55,7 +55,14 @@ public class MainWindowController extends Application {
 
     @FXML
     void saveToFileClicked(ActionEvent event) {
+        FileChooser saveFileDialog = new FileChooser();
+        File file = saveFileDialog.showSaveDialog(primaryStage);
 
+        if (file == null) {
+            Logger.getGlobal().log(Level.INFO, "No file selected");
+        }
+
+        driver.writeToFile(file);
     }
 
     @FXML
@@ -63,6 +70,11 @@ public class MainWindowController extends Application {
 
     Stage primaryStage;
     LoanDriver driver = new LoanDriver();
+
+    @FXML
+    void createLoanClicked(ActionEvent event) {
+
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {

@@ -80,7 +80,7 @@ public class LoanDriver {
         // Udskriv listen. toString() i alle lån kaldes automatisk
         System.out.println(loanDriver.getLoans());
 
-        loanDriver.writeToFile();
+        loanDriver.writeToFile(new File(LOAN_FILE_NAME));
 
         System.out.println("\nFrom File:\n" + loanDriver.readFromFile(new File(LOAN_FILE_NAME)));
     }
@@ -102,8 +102,8 @@ public class LoanDriver {
     }
 
     //Implementeres i opgave B
-    public void writeToFile() {
-        File saveFile = new File(LOAN_FILE_NAME);
+    public void writeToFile(File saveFile) {
+        //File saveFile = new File(LOAN_FILE_NAME);
         PrintWriter writer = null;
 
         try {
