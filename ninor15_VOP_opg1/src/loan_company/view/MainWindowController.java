@@ -83,6 +83,8 @@ public class MainWindowController {
     @FXML
     void openFileClicked(ActionEvent event) {
         FileChooser openFileDialog = new FileChooser();
+        openFileDialog.setInitialFileName("loanFile");
+        openFileDialog.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", ".txt"));
         File file = openFileDialog.showOpenDialog(primaryStage);
 
         if (file == null) {
@@ -96,10 +98,13 @@ public class MainWindowController {
     @FXML
     void saveToFileClicked(ActionEvent event) {
         FileChooser saveFileDialog = new FileChooser();
+        saveFileDialog.setInitialFileName("loanFile");
+        saveFileDialog.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", ".txt"));
         File file = saveFileDialog.showSaveDialog(primaryStage);
 
         if (file == null) {
             Logger.getGlobal().log(Level.INFO, "No file selected");
+            return;
         }
 
         loanDriver.writeToFile(file);
