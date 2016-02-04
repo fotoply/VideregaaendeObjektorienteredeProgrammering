@@ -23,30 +23,30 @@ import java.util.logging.Logger;
 
 public class MainWindowController extends Application {
 
+    Stage primaryStage;
+    LoanDriver driver = new LoanDriver();
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField amountTextField;
+    @FXML
+    private ToggleGroup typeToggleGroup;
+    @FXML
+    private ToggleGroup durationToggleGroup;
+    @FXML
+    private TextArea openLoanTextArea;
+
     public static void main(String[] args) {
         launch(args);
     }
-
-    @FXML
-    private TextField nameTextField;
-
-    @FXML
-    private TextField amountTextField;
-
-    @FXML
-    private ToggleGroup typeToggleGroup;
-
-    @FXML
-    private ToggleGroup durationToggleGroup;
-
 
     @FXML
     void openFileClicked(ActionEvent event) {
         FileChooser openFileDialog = new FileChooser();
         File file = openFileDialog.showOpenDialog(primaryStage);
 
-        if(file == null) {
-            Logger.getGlobal().log(Level.INFO,"No file selected");
+        if (file == null) {
+            Logger.getGlobal().log(Level.INFO, "No file selected");
             return;
         }
 
@@ -64,12 +64,6 @@ public class MainWindowController extends Application {
 
         driver.writeToFile(file);
     }
-
-    @FXML
-    private TextArea openLoanTextArea;
-
-    Stage primaryStage;
-    LoanDriver driver = new LoanDriver();
 
     @FXML
     void createLoanClicked(ActionEvent event) {
