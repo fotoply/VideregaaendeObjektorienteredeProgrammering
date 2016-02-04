@@ -4,27 +4,26 @@ package loan_company.view;/**
  * @author Niels Norberg
  */
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import loan_company.model.LoanDriver;
+import loan_company.control.LoanDriver;
+import loan_company.control.MainDriver;
+import org.omg.CORBA.MARSHAL;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MainWindowController extends Application {
+public class MainWindowController {
 
-    Stage primaryStage;
-    LoanDriver driver = new LoanDriver();
     @FXML
     private TextField nameTextField;
     @FXML
@@ -36,8 +35,22 @@ public class MainWindowController extends Application {
     @FXML
     private TextArea openLoanTextArea;
 
-    public static void main(String[] args) {
-        launch(args);
+    private LoanDriver driver;
+    private Stage primaryStage;
+
+    @FXML
+    void initialize() {
+        driver = MainDriver.getINSTANCE().getDriver();
+        primaryStage = MainDriver.getINSTANCE().getPrimaryStage();
+
+        amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                Integer.parseInt(newValue);
+            } catch (NumberFormatException e) {
+                amountTextField.setText(oldValue);
+                amountTextField.getBorder().getStrokes().get(0).
+            }
+        });
     }
 
     @FXML
@@ -67,16 +80,32 @@ public class MainWindowController extends Application {
 
     @FXML
     void createLoanClicked(ActionEvent event) {
+        if (isDataValid()) {
 
+        } else {
+            Dialog alertDialog = new Dialog();
+            alertDialog.setTitle("Invalid data");
+            alertDialog.setHeaderText("");
+            alertDialog.setContentText("Please enter only valid data");
+        }
     }
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        this.primaryStage = primaryStage;
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("MainWindow.fxml"));
-        primaryStage.setScene(new Scene(loader.load()));
-        primaryStage.show();
+    private boolean isDataValid() {
+        if(typeToggleGroup.getSelectedToggle() == null) {
+            return false;
+        }
 
+        try {
+            Integer.parseInt(amountTextField.getText());
+        } catch (NumberFormatException e) {
+            Logger.getGlobal().log(Level.INFO, "A non-number was entered for amount");
+            return false;
+        }
+
+        if(durationToggleGroup.getSelectedToggle() == null) {
+            return false;
+        }
+
+        return true;
     }
 }

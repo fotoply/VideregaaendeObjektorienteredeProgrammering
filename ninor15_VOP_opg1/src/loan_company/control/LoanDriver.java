@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package loan_company.model;
+package loan_company.control;
 
+import loan_company.model.LoanInterface;
 import loan_company.model.loans.Business;
 import loan_company.model.loans.Personal;
 
