@@ -98,8 +98,8 @@ public abstract class Loan implements LoanInterface {
                 "\nName:\t\t" + getLoanHolderName() +
                 "\nDate:\t\t" + getStartedDate().toString() +
                 "\nDuration:\t\t" + getDuration().getTimeInYears() + " years" +
-                "\nAmount:\t\t" + getAmountLoaned() +
-                "\nTotal:\t\t" + getTotal() +
+                "\nAmount:\t\t" + getAmountLoaned() + " " + CURRENCY_DENOTATION +
+                "\nTotal:\t\t" + getTotal() + " " + CURRENCY_DENOTATION +
                 "******************************";
     }
 }
