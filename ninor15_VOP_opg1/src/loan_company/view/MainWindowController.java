@@ -58,14 +58,12 @@ public class MainWindowController {
         primaryStage = MainDriver.getINSTANCE().getPrimaryStage();
 
         amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            verifyAmountField(oldValue,newValue);
+            verifyAmountField(oldValue, newValue);
         });
     }
 
     private void verifyAmountField(String oldValue, String newValue) {
-        if (newValue == "") {
-
-        } else {
+    if (!newValue.equals("")) {
             try {
                 Integer.parseInt(newValue);
                 if (amountTextField.getStyleClass().contains("error")) {
@@ -108,16 +106,16 @@ public class MainWindowController {
         if (isDataValid()) {
             LoanInterface.LoanDuration duration = LoanInterface.LoanDuration.SHORT_TERM;
 
-            if(mediumToggleButton.isSelected()) {
+            if (mediumToggleButton.isSelected()) {
                 duration = LoanInterface.LoanDuration.MIDDLE_TERM;
-            } else if(longToggleButton.isSelected()) {
+            } else if (longToggleButton.isSelected()) {
                 duration = LoanInterface.LoanDuration.LONG_TERM;
             }
 
-            if(businessToggleButton.isSelected()) {
-                loanDriver.addBusinessLoan(MainDriver.loanID++,nameTextField.getText(),Integer.parseInt(amountTextField.getText()),duration);
+            if (businessToggleButton.isSelected()) {
+                loanDriver.addBusinessLoan(MainDriver.loanID++, nameTextField.getText(), Integer.parseInt(amountTextField.getText()), duration);
             } else {
-                loanDriver.addPersonalLoan(MainDriver.loanID++,nameTextField.getText(),Integer.parseInt(amountTextField.getText()),duration);
+                loanDriver.addPersonalLoan(MainDriver.loanID++, nameTextField.getText(), Integer.parseInt(amountTextField.getText()), duration);
             }
 
 
@@ -131,7 +129,7 @@ public class MainWindowController {
     }
 
     private boolean isDataValid() {
-        if(typeToggleGroup.getSelectedToggle() == null) {
+        if (typeToggleGroup.getSelectedToggle() == null) {
             return false;
         }
 
@@ -142,7 +140,7 @@ public class MainWindowController {
             return false;
         }
 
-        if(durationToggleGroup.getSelectedToggle() == null) {
+        if (durationToggleGroup.getSelectedToggle() == null) {
             return false;
         }
 

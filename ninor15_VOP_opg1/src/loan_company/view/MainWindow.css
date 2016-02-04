@@ -1,6 +1,6 @@
 .text-field.error {
-    -fx-text-box-border: red ;
-    -fx-focus-color: red ;
+    -fx-text-box-border: red;
+    -fx-focus-color: red;
 }
 
 .text-field.standard {

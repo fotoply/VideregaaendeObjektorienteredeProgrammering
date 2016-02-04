@@ -13,8 +13,17 @@ import java.io.IOException;
 
 public class MainDriver extends Application {
 
+    public static int loanID = 123123123;
+    private static MainDriver INSTANCE;
+    Stage primaryStage;
+    LoanDriver driver = new LoanDriver();
+
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static MainDriver getINSTANCE() {
+        return INSTANCE;
     }
 
     @Override
@@ -26,16 +35,6 @@ public class MainDriver extends Application {
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
 
-    }
-
-    Stage primaryStage;
-    LoanDriver driver = new LoanDriver();
-    public static int loanID = 123123123;
-
-    private static MainDriver INSTANCE;
-
-    public static MainDriver getINSTANCE() {
-        return INSTANCE;
     }
 
     public Stage getPrimaryStage() {

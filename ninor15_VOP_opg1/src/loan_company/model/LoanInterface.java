@@ -1,7 +1,5 @@
 package loan_company.model;
 
-import java.util.Date;
-
 /**
  * @author erso  Created on 03-11-2009, 10:02:34
  *         Updated for VOP 2.sem F15 05-02-2015
@@ -25,7 +23,7 @@ public interface LoanInterface {
 
     double getInterestRate();
 
-    public enum LoanDuration {
+    enum LoanDuration {
         SHORT_TERM(1), MIDDLE_TERM(3), LONG_TERM(5);
         private int timeInYears;
 
