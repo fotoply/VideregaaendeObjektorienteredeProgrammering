@@ -9,7 +9,7 @@ public interface LoanInterface {
     String COMPANY_NAME = "Fuskes Finans Aps";
     String CURRENCY_DENOTATION = "DKK";
     int MAX_AMOUNT_LOANABLE = 500000;
-    double DISKONTO = 0.0;
+    double DISKONTO = 0.005;
 
     double PERSONAL_RENT = 0.05;
     int PERSONAL_CREATION_FEE = 1000;
