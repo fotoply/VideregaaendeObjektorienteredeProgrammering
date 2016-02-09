@@ -67,10 +67,10 @@ public class MainWindowController {
     }
 
     private void verifyNameNotEmpty(String newValue) {
-        if (newValue.equals("")) {
+        if (newValue.trim().equals("")) {
             markFieldAsError(nameTextField);
         } else {
-            markFieldAsError(nameTextField);
+            unmarkFieldAsError(nameTextField);
         }
     }
 
@@ -182,7 +182,7 @@ public class MainWindowController {
             result = false;
         }
 
-        if (nameTextField.getText().equals("")) {
+        if (nameTextField.getText().trim().equals("")) {
             markFieldAsError(nameTextField);
             result = false;
         }
