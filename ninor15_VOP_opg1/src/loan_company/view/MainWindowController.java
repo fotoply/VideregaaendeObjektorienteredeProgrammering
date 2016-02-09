@@ -124,7 +124,7 @@ public class MainWindowController {
     @FXML
     void saveToFileClicked(ActionEvent event) {
         FileChooser saveFileDialog = new FileChooser();
-        saveFileDialog.setInitialFileName("loanFile.txt");
+        saveFileDialog.setInitialFileName(nameTextField.getText());
         saveFileDialog.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", "*.txt"));
         File file = saveFileDialog.showSaveDialog(primaryStage);
 
@@ -186,7 +186,7 @@ public class MainWindowController {
             return false;
         }
 
-        if(nameTextField.getText() == "") {
+        if(nameTextField.getText().equals("")) {
             nameTextField.getStyleClass().add("error");
             return false;
         }
