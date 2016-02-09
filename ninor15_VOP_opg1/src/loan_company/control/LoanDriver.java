@@ -22,7 +22,17 @@ public class LoanDriver {
     // Liste som skal indeholde de oprettede lån
     private List<LoanInterface> loans;
 
-    public LoanDriver() {
+    private static LoanDriver instance;
+    public int loanID = 123123123;
+
+    public static LoanDriver getInstance() {
+        if(instance == null) {
+            instance = new LoanDriver();
+        }
+        return instance;
+    }
+
+    private LoanDriver() {
         loans = new ArrayList<>();
     }
 

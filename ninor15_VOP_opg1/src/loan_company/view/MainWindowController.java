@@ -53,7 +53,7 @@ public class MainWindowController {
 
     @FXML
     void initialize() {
-        loanDriver = MainDriver.getDriverInstance();
+        loanDriver = LoanDriver.getInstance();
 
         amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             verifyAmountField(oldValue, newValue);
@@ -149,9 +149,9 @@ public class MainWindowController {
             }
 
             if (businessToggleButton.isSelected()) {
-                loanDriver.addBusinessLoan(MainDriver.loanID++, nameTextField.getText(), Integer.parseInt(amountTextField.getText()), duration);
+                loanDriver.addBusinessLoan(loanDriver.loanID++, nameTextField.getText(), Integer.parseInt(amountTextField.getText()), duration);
             } else {
-                loanDriver.addPersonalLoan(MainDriver.loanID++, nameTextField.getText(), Integer.parseInt(amountTextField.getText()), duration);
+                loanDriver.addPersonalLoan(loanDriver.loanID++, nameTextField.getText(), Integer.parseInt(amountTextField.getText()), duration);
             }
 
 

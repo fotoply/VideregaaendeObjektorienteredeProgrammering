@@ -13,19 +13,10 @@ import java.io.IOException;
 
 public class MainDriver extends Application {
 
-    public static int loanID = 123123123;
-    private static LoanDriver instance;
     Stage primaryStage;
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public static LoanDriver getDriverInstance() {
-        if(instance == null) {
-            instance = new LoanDriver();
-        }
-        return instance;
     }
 
     @Override
