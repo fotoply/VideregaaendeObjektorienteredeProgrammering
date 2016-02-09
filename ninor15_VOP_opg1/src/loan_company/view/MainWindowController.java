@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import loan_company.control.LoanDriver;
 import loan_company.control.MainDriver;
 import loan_company.model.LoanInterface;
+import sun.rmi.runtime.Log;
 
 import java.io.File;
 import java.util.logging.Level;
@@ -83,7 +84,9 @@ public class MainWindowController {
             try {
                 if(Integer.parseInt(newValue) > 500000) {
                     //amountTextField.setText(oldValue);
-                    amountTextField.getStyleClass().add("error");
+                    if(!amountTextField.getStyleClass().contains("error")) {
+                        amountTextField.getStyleClass().add("error");
+                    }
                     return;
                 }
                 if (amountTextField.getStyleClass().contains("error")) {
@@ -91,7 +94,14 @@ public class MainWindowController {
                 }
             } catch (NumberFormatException e) {
                 //amountTextField.setText(oldValue);
-                amountTextField.getStyleClass().add("error");
+                if(!amountTextField.getStyleClass().contains("error")) {
+                    amountTextField.getStyleClass().add("error");
+                }
+            } catch (Exception e) {
+                Logger.getGlobal().log(Level.INFO, "An exception occured when parsing the amount.\n" + e.getMessage() );
+                if(!amountTextField.getStyleClass().contains("error")) {
+                    amountTextField.getStyleClass().add("error");
+                }
             }
         }
     }
@@ -166,6 +176,9 @@ public class MainWindowController {
             Integer.parseInt(amountTextField.getText());
         } catch (NumberFormatException e) {
             Logger.getGlobal().log(Level.INFO, "A non-number was entered for amount");
+            return false;
+        } catch (Exception e) {
+            Logger.getGlobal().log(Level.INFO, "An invalid number was entered (too large)");
             return false;
         }
 
