@@ -82,7 +82,7 @@ public class MainWindowController {
     private void verifyAmountField(String oldValue, String newValue) {
     if (!newValue.equals("")) {
             try {
-                if(Integer.parseInt(newValue) > 500000) {
+                if(Integer.parseInt(newValue) > 500000 || Integer.parseInt(newValue) <= 0) {
                     //amountTextField.setText(oldValue);
                     if(!amountTextField.getStyleClass().contains("error")) {
                         amountTextField.getStyleClass().add("error");
