@@ -54,8 +54,8 @@ public class MainWindowController {
 
     @FXML
     void initialize() {
-        loanDriver = MainDriver.getINSTANCE().getDriver();
-        primaryStage = MainDriver.getINSTANCE().getPrimaryStage();
+        loanDriver = MainDriver.getInstance().getDriver();
+        primaryStage = MainDriver.getInstance().getPrimaryStage();
 
         amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             verifyAmountField(oldValue, newValue);
