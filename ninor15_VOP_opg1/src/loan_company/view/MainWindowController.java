@@ -175,6 +175,7 @@ public class MainWindowController {
 
         if(nameTextField.getText() == "") {
             nameTextField.getStyleClass().add("error");
+            return false;
         }
 
         return true;
