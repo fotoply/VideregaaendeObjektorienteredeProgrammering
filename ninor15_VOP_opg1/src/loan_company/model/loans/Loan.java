@@ -94,7 +94,7 @@ public abstract class Loan implements LoanInterface {
 
     @Override
     public String toString() {
-        return  "\nAccount:\t\t" + getLoanHolderID() +
+        return "\nAccount:\t\t" + getLoanHolderID() +
                 "\nName:\t\t" + getLoanHolderName() +
                 "\nDate:\t\t" + getStartedDate().toString() +
                 "\nDuration:\t\t" + getDuration().getTimeInYears() + " years" +

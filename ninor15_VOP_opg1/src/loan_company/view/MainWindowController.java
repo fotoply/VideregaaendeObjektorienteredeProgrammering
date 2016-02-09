@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import loan_company.control.LoanDriver;
 import loan_company.control.MainDriver;
 import loan_company.model.LoanInterface;
-import sun.rmi.runtime.Log;
 
 import java.io.File;
 import java.util.logging.Level;
@@ -68,23 +67,23 @@ public class MainWindowController {
     }
 
     private void verifyNameNotEmpty(String newValue) {
-        if(newValue.equals("")) {
-            if(!nameTextField.getStyleClass().contains("error")) {
+        if (newValue.equals("")) {
+            if (!nameTextField.getStyleClass().contains("error")) {
                 nameTextField.getStyleClass().add("error");
             }
         } else {
-            if(nameTextField.getStyleClass().contains("error")) {
+            if (nameTextField.getStyleClass().contains("error")) {
                 nameTextField.getStyleClass().remove("error");
             }
         }
     }
 
     private void verifyAmountField(String oldValue, String newValue) {
-    if (!newValue.equals("")) {
+        if (!newValue.equals("")) {
             try {
-                if(Integer.parseInt(newValue) > 500000 || Integer.parseInt(newValue) <= 0) {
+                if (Integer.parseInt(newValue) > 500000 || Integer.parseInt(newValue) <= 0) {
                     //amountTextField.setText(oldValue);
-                    if(!amountTextField.getStyleClass().contains("error")) {
+                    if (!amountTextField.getStyleClass().contains("error")) {
                         amountTextField.getStyleClass().add("error");
                     }
                     return;
@@ -94,12 +93,12 @@ public class MainWindowController {
                 }
             } catch (NumberFormatException e) {
                 //amountTextField.setText(oldValue);
-                if(!amountTextField.getStyleClass().contains("error")) {
+                if (!amountTextField.getStyleClass().contains("error")) {
                     amountTextField.getStyleClass().add("error");
                 }
             } catch (Exception e) {
-                Logger.getGlobal().log(Level.INFO, "An exception occured when parsing the amount.\n" + e.getMessage() );
-                if(!amountTextField.getStyleClass().contains("error")) {
+                Logger.getGlobal().log(Level.INFO, "An exception occured when parsing the amount.\n" + e.getMessage());
+                if (!amountTextField.getStyleClass().contains("error")) {
                     amountTextField.getStyleClass().add("error");
                 }
             }
@@ -133,7 +132,7 @@ public class MainWindowController {
             return;
         }
 
-        if(!file.getName().endsWith(".txt")) {
+        if (!file.getName().endsWith(".txt")) {
             file = new File(file.getAbsolutePath() + ".txt");
         }
 
@@ -168,17 +167,17 @@ public class MainWindowController {
         }
 
         try {
-            Integer.parseInt(amountTextField.getText()) ;
+            Integer.parseInt(amountTextField.getText());
         } catch (NumberFormatException e) {
             Logger.getGlobal().log(Level.INFO, "A non-number was entered for amount");
             result = false;
-            if(!amountTextField.getStyleClass().contains("error")) {
+            if (!amountTextField.getStyleClass().contains("error")) {
                 amountTextField.getStyleClass().add("error");
             }
         } catch (Exception e) {
             Logger.getGlobal().log(Level.INFO, "An invalid number was entered (too large)");
             result = false;
-            if(!amountTextField.getStyleClass().contains("error")) {
+            if (!amountTextField.getStyleClass().contains("error")) {
                 amountTextField.getStyleClass().add("error");
             }
         }
@@ -187,7 +186,7 @@ public class MainWindowController {
             result = false;
         }
 
-        if(nameTextField.getText().equals("")) {
+        if (nameTextField.getText().equals("")) {
             nameTextField.getStyleClass().add("error");
             result = false;
         }
