@@ -158,39 +158,40 @@ public class MainWindowController {
             }
 
 
-        } /*else {
-            Dialog alertDialog = new Dialog();
-            alertDialog.setTitle("Invalid data");
-            alertDialog.setHeaderText("");
-            alertDialog.setContentText("Please enter only valid data.\nAll fields will have to be filled");
-            alertDialog.show();
-        }*/
+        }
     }
 
     private boolean isDataValid() {
+        boolean result = true;
         if (typeToggleGroup.getSelectedToggle() == null) {
-            return false;
+            result = false;
         }
 
         try {
-            Integer.parseInt(amountTextField.getText());
+            Integer.parseInt(amountTextField.getText()) ;
         } catch (NumberFormatException e) {
             Logger.getGlobal().log(Level.INFO, "A non-number was entered for amount");
-            return false;
+            result = false;
+            if(!amountTextField.getStyleClass().contains("error")) {
+                amountTextField.getStyleClass().add("error");
+            }
         } catch (Exception e) {
             Logger.getGlobal().log(Level.INFO, "An invalid number was entered (too large)");
-            return false;
+            result = false;
+            if(!amountTextField.getStyleClass().contains("error")) {
+                amountTextField.getStyleClass().add("error");
+            }
         }
 
         if (durationToggleGroup.getSelectedToggle() == null) {
-            return false;
+            result = false;
         }
 
         if(nameTextField.getText().equals("")) {
             nameTextField.getStyleClass().add("error");
-            return false;
+            result = false;
         }
 
-        return true;
+        return result;
     }
 }
