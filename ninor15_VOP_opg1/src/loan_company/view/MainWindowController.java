@@ -60,13 +60,29 @@ public class MainWindowController {
         amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             verifyAmountField(oldValue, newValue);
         });
+
+        nameTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            verifyNameNotEmpty(newValue);
+        });
+    }
+
+    private void verifyNameNotEmpty(String newValue) {
+        if(newValue.equals("")) {
+            if(!nameTextField.getStyleClass().contains("error")) {
+                nameTextField.getStyleClass().add("error");
+            }
+        } else {
+            if(nameTextField.getStyleClass().contains("error")) {
+                nameTextField.getStyleClass().remove("error");
+            }
+        }
     }
 
     private void verifyAmountField(String oldValue, String newValue) {
     if (!newValue.equals("")) {
             try {
                 if(Integer.parseInt(newValue) > 500000) {
-                    amountTextField.setText(oldValue);
+                    //amountTextField.setText(oldValue);
                     amountTextField.getStyleClass().add("error");
                     return;
                 }
@@ -74,7 +90,7 @@ public class MainWindowController {
                     amountTextField.getStyleClass().remove("error");
                 }
             } catch (NumberFormatException e) {
-                amountTextField.setText(oldValue);
+                //amountTextField.setText(oldValue);
                 amountTextField.getStyleClass().add("error");
             }
         }
@@ -155,6 +171,10 @@ public class MainWindowController {
 
         if (durationToggleGroup.getSelectedToggle() == null) {
             return false;
+        }
+
+        if(nameTextField.getText() == "") {
+            nameTextField.getStyleClass().add("error");
         }
 
         return true;

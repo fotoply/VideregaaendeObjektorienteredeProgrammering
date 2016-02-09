@@ -50,7 +50,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextField fx:id="nameTextField" GridPane.columnIndex="1" />
+                              <TextField fx:id="nameTextField" stylesheets="@MainWindow.css" GridPane.columnIndex="1" />
                               <TextField fx:id="amountTextField" stylesheets="@MainWindow.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.halignment="RIGHT" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
