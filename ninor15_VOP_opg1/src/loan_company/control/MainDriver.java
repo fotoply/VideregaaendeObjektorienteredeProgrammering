@@ -14,34 +14,27 @@ import java.io.IOException;
 public class MainDriver extends Application {
 
     public static int loanID = 123123123;
-    private static MainDriver instance;
+    private static LoanDriver instance;
     Stage primaryStage;
-    LoanDriver driver = new LoanDriver();
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    public static MainDriver getInstance() {
+    public static LoanDriver getDriverInstance() {
+        if(instance == null) {
+            instance = new LoanDriver();
+        }
         return instance;
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        MainDriver.instance = this;
         this.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../view/MainWindow.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
 
-    }
-
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
-
-    public LoanDriver getDriver() {
-        return driver;
     }
 }

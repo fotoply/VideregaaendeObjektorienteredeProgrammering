@@ -50,12 +50,10 @@ public class MainWindowController {
     private TextArea openLoanTextArea;
 
     private LoanDriver loanDriver;
-    private Stage primaryStage;
 
     @FXML
     void initialize() {
-        loanDriver = MainDriver.getInstance().getDriver();
-        primaryStage = MainDriver.getInstance().getPrimaryStage();
+        loanDriver = MainDriver.getDriverInstance();
 
         amountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             verifyAmountField(oldValue, newValue);
@@ -110,7 +108,7 @@ public class MainWindowController {
         FileChooser openFileDialog = new FileChooser();
         openFileDialog.setInitialFileName("loanFile");
         openFileDialog.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", "*.txt"));
-        File file = openFileDialog.showOpenDialog(primaryStage);
+        File file = openFileDialog.showOpenDialog(null);
 
         if (file == null) {
             Logger.getGlobal().log(Level.INFO, "No file selected");
@@ -125,7 +123,7 @@ public class MainWindowController {
         FileChooser saveFileDialog = new FileChooser();
         saveFileDialog.setInitialFileName(nameTextField.getText());
         saveFileDialog.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files", "*.txt"));
-        File file = saveFileDialog.showSaveDialog(primaryStage);
+        File file = saveFileDialog.showSaveDialog(null);
 
         if (file == null) {
             Logger.getGlobal().log(Level.INFO, "No file selected");
