@@ -68,13 +68,21 @@ public class MainWindowController {
 
     private void verifyNameNotEmpty(String newValue) {
         if (newValue.equals("")) {
-            if (!nameTextField.getStyleClass().contains("error")) {
-                nameTextField.getStyleClass().add("error");
-            }
+            markFieldAsError(nameTextField);
         } else {
-            if (nameTextField.getStyleClass().contains("error")) {
-                nameTextField.getStyleClass().remove("error");
-            }
+            markFieldAsError(nameTextField);
+        }
+    }
+
+    private void markFieldAsError(TextField fieldToMark) {
+        if(!fieldToMark.getStyleClass().contains("error")) {
+            fieldToMark.getStyleClass().add("error");
+        }
+    }
+
+    private void unmarkFieldAsError(TextField fieldToUnmark) {
+        if(fieldToUnmark.getStyleClass().contains("error")) {
+            fieldToUnmark.getStyleClass().remove("error");
         }
     }
 
@@ -83,24 +91,16 @@ public class MainWindowController {
             try {
                 if (Integer.parseInt(newValue) > 500000 || Integer.parseInt(newValue) <= 0) {
                     //amountTextField.setText(oldValue);
-                    if (!amountTextField.getStyleClass().contains("error")) {
-                        amountTextField.getStyleClass().add("error");
-                    }
+                    markFieldAsError(amountTextField);
                     return;
                 }
-                if (amountTextField.getStyleClass().contains("error")) {
-                    amountTextField.getStyleClass().remove("error");
-                }
+                unmarkFieldAsError(amountTextField);
             } catch (NumberFormatException e) {
                 //amountTextField.setText(oldValue);
-                if (!amountTextField.getStyleClass().contains("error")) {
-                    amountTextField.getStyleClass().add("error");
-                }
+                markFieldAsError(amountTextField);
             } catch (Exception e) {
                 Logger.getGlobal().log(Level.INFO, "An exception occured when parsing the amount.\n" + e.getMessage());
-                if (!amountTextField.getStyleClass().contains("error")) {
-                    amountTextField.getStyleClass().add("error");
-                }
+                markFieldAsError(amountTextField);
             }
         }
     }
@@ -171,15 +171,11 @@ public class MainWindowController {
         } catch (NumberFormatException e) {
             Logger.getGlobal().log(Level.INFO, "A non-number was entered for amount");
             result = false;
-            if (!amountTextField.getStyleClass().contains("error")) {
-                amountTextField.getStyleClass().add("error");
-            }
+            markFieldAsError(amountTextField);
         } catch (Exception e) {
             Logger.getGlobal().log(Level.INFO, "An invalid number was entered (too large)");
             result = false;
-            if (!amountTextField.getStyleClass().contains("error")) {
-                amountTextField.getStyleClass().add("error");
-            }
+            markFieldAsError(amountTextField);
         }
 
         if (durationToggleGroup.getSelectedToggle() == null) {
@@ -187,7 +183,7 @@ public class MainWindowController {
         }
 
         if (nameTextField.getText().equals("")) {
-            nameTextField.getStyleClass().add("error");
+            markFieldAsError(nameTextField);
             result = false;
         }
 
