@@ -9,17 +9,17 @@ public class IntegerSorter {
 
     public static void sortAscending(int[] arrayToSort, int fromIndex, int toIndex) {
         int smallest;
-        for (int i = 0; i < toIndex-fromIndex; i++) {
-            smallest = smallestIndexIn(Arrays.copyOfRange(arrayToSort,i+fromIndex, toIndex));
-            swap(arrayToSort,i+fromIndex,smallest+i+fromIndex);
+        for (int i = 0; i < toIndex - fromIndex; i++) {
+            smallest = smallestIndexIn(Arrays.copyOfRange(arrayToSort, i + fromIndex, toIndex));
+            swap(arrayToSort, i + fromIndex, smallest + i + fromIndex);
         }
     }
 
     public static void sortDescending(int[] arrayToSort, int fromIndex, int toIndex) {
         int smallest;
-        for (int i = 0; i < toIndex-fromIndex; i++) {
-            smallest = smallestIndexIn(Arrays.copyOfRange(arrayToSort,fromIndex, toIndex-i));
-            swap(arrayToSort,smallest+fromIndex,toIndex-i-1);
+        for (int i = 0; i < toIndex - fromIndex; i++) {
+            smallest = smallestIndexIn(Arrays.copyOfRange(arrayToSort, fromIndex, toIndex - i));
+            swap(arrayToSort, smallest + fromIndex, toIndex - i - 1);
         }
     }
 
