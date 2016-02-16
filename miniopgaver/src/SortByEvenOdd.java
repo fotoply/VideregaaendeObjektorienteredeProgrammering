@@ -1,3 +1,5 @@
+import com.sun.deploy.util.ArrayUtil;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -29,7 +31,7 @@ public class SortByEvenOdd {
         int minPos = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 1) {
-                swap(array,minPos,i);
+                IntegerSorter.swap(array,minPos,i);
                 minPos++;
             }
         }
@@ -38,34 +40,7 @@ public class SortByEvenOdd {
     }
 
     private void sort(int [] array, int splitIndex) {
-        int smallestIndex;
-        for (int i = 0; i < array.length-splitIndex; i++) {
-            smallestIndex = findSmallest(Arrays.copyOfRange(array,i,splitIndex));
-            swap(array,smallestIndex+i,i);
-        }
-
-        for (int i = 0; i < array.length-splitIndex; i++) {
-            smallestIndex = findSmallest(Arrays.copyOfRange(array,splitIndex,array.length-i));
-            swap(array,smallestIndex+splitIndex,array.length-i-1);
-        }
+        IntegerSorter.sortAscending(array,0,splitIndex);
+        IntegerSorter.sortDescending(array,splitIndex,array.length);
     }
-
-    private int findSmallest(int[] array) {
-        int smallest = array[0];
-        int index = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < smallest) {
-                smallest = array[i];
-                index = i;
-            }
-        }
-        return index;
-    }
-
-    private void swap(int[] array, int indexToSwap, int otherIndexToSwap) {
-        int temp1 = array[indexToSwap];
-        array[indexToSwap] = array[otherIndexToSwap];
-        array[otherIndexToSwap] = temp1;
-    }
-
 }
