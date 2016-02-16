@@ -32,9 +32,9 @@ public class sortByEvenOdd {
             swap(array,smallestIndex+i,i);
         }
 
-        for (int i = splitIndex; i < array.length; i++) {
-            smallestIndex = findSmallest(Arrays.copyOfRange(array,i,array.length));
-            swap(array,smallestIndex+i,i);
+        for (int i = 0; i < array.length-splitIndex; i++) {
+            smallestIndex = findSmallest(Arrays.copyOfRange(array,splitIndex,array.length-i));
+            swap(array,smallestIndex+splitIndex,array.length-i-1);
         }
     }
 
