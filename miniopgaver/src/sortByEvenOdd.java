@@ -21,10 +21,36 @@ public class sortByEvenOdd {
                 minPos++;
             }
         }
+        sort(array,minPos);
         return array;
     }
 
-    public void swap(int[] array, int indexToSwap, int otherIndexToSwap) {
+    private void sort(int [] array, int splitIndex) {
+        int smallestIndex;
+        for (int i = 0; i < array.length-splitIndex; i++) {
+            smallestIndex = findSmallest(Arrays.copyOfRange(array,i,splitIndex));
+            swap(array,smallestIndex+i,i);
+        }
+
+        for (int i = splitIndex; i < array.length; i++) {
+            smallestIndex = findSmallest(Arrays.copyOfRange(array,i,array.length));
+            swap(array,smallestIndex+i,i);
+        }
+    }
+
+    private int findSmallest(int[] array) {
+        int smallest = array[0];
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < smallest) {
+                smallest = array[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    private void swap(int[] array, int indexToSwap, int otherIndexToSwap) {
         int temp1 = array[indexToSwap];
         array[indexToSwap] = array[otherIndexToSwap];
         array[otherIndexToSwap] = temp1;
