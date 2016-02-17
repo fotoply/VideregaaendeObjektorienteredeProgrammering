@@ -6,10 +6,7 @@ package loan_company.view;/**
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import loan_company.control.LoanDriver;
@@ -17,6 +14,7 @@ import loan_company.control.MainDriver;
 import loan_company.model.LoanInterface;
 
 import java.io.File;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -183,6 +181,14 @@ public class MainWindowController {
         if (nameTextField.getText().trim().equals("")) {
             markFieldAsError(nameTextField);
             result = false;
+        }
+
+        if(result == false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Invalid information");
+            alert.setContentText("Not all entered information was valid");
+            alert.setHeaderText("");
+
+            alert.showAndWait();
         }
 
         return result;
