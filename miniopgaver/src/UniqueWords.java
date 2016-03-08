@@ -2,8 +2,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -17,6 +19,12 @@ public class UniqueWords
 
     public UniqueWords(String fileName, boolean hash)
     {
+        file = new File(fileName);
+        if(hash) {
+            wordSet = new HashSet<>();
+        } else {
+            wordSet = new TreeSet<>();
+        }
         // Instantier file med fileName
         // Instantier wordSet til HashSet eller TreeSet afhaengig af hash
     }
