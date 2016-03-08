@@ -24,7 +24,9 @@ public class ExtendedList extends LinkedList<String>
     
     // Opgave P14.2
     public void reverse(){
-
+        for (int i = 0, j = this.size()-1; i < j; i++, j--) {
+            Collections.swap(this,i,j);
+        }
     }
     
     // Ekstra Opgave: Recursiv udgave af P14.2
