@@ -1,26 +1,21 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
 /**
- *
  * @author erso
  */
-public class UniqueWords
-{
+public class UniqueWords {
 
     private Set<String> wordSet;
     private File file;
 
-    public UniqueWords(String fileName, boolean hash)
-    {
+    public UniqueWords(String fileName, boolean hash) {
         file = new File(fileName);
-        if(hash) {
+        if (hash) {
             wordSet = new HashSet<>();
         } else {
             wordSet = new TreeSet<>();
@@ -29,14 +24,25 @@ public class UniqueWords
         // Instantier wordSet til HashSet eller TreeSet afhaengig af hash
     }
 
-    private void readFile()
-    {
-        try {
-            Scanner reader = new Scanner(file);
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // Ben Pearce: se https://www.youtube.com/watch?v=AxLWre1TIQw.
+        // true: HashSet, false: TreeSet
+        UniqueWords uWords = new UniqueWords("lyrics.txt", false);
+
+        uWords.readFile();
+
+        System.out.println(uWords);
+    }
+
+    private void readFile() {
+        try (Scanner reader = new Scanner(file)) {
             while (reader.hasNext()) {
                 String next = reader.next();
-                next = next.replaceAll(",","");
-                if(!next.isEmpty()) {
+                next = next.replaceAll(",", "");
+                if (!next.isEmpty()) {
                     wordSet.add(next);
                 }
             }
@@ -46,23 +52,8 @@ public class UniqueWords
         }
     }
 
-    public String toString()
-    {
-        return wordSet.toString() +"\nSize: " + wordSet.size();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
-    {
-        // Ben Pearce: se https://www.youtube.com/watch?v=AxLWre1TIQw.
-        // true: HashSet, false: TreeSet
-        UniqueWords uWords = new UniqueWords("lyrics.txt", false);
-        
-        uWords.readFile();
-        
-        System.out.println(uWords);
+    public String toString() {
+        return wordSet.toString() + "\nSize: " + wordSet.size();
     }
 
 }
