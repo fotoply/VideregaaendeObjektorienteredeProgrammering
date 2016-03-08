@@ -1,4 +1,8 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -19,10 +23,18 @@ public class UniqueWords
 
     private void readFile()
     {
-        // Benyt en Scanner til at laese filen ét ord ad gangen og
-        // tilfoej hvert ord til wordSet.
-        // Brug try-catch-finally til exception handling
+        try {
+            Scanner reader = new Scanner(new BufferedReader(new FileReader(file)));
+            while (reader.hasNextLine()) {
+                String[] line = reader.nextLine().split(" ");
+                for (String word: line) {
+                    wordSet.add(word);
+                }
+            }
 
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public String toString()
