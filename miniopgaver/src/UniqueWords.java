@@ -57,7 +57,7 @@ public class UniqueWords
     {
         // Ben Pearce: se https://www.youtube.com/watch?v=AxLWre1TIQw.
         // true: HashSet, false: TreeSet
-        UniqueWords uWords = new UniqueWords("Ben Pearce - What I Might Do.txt", false);
+        UniqueWords uWords = new UniqueWords("lyrics.txt", false);
         
         uWords.readFile();
         
