@@ -32,11 +32,12 @@ public class UniqueWords
     private void readFile()
     {
         try {
-            Scanner reader = new Scanner(new BufferedReader(new FileReader(file)));
-            while (reader.hasNextLine()) {
-                String[] line = reader.nextLine().split(" ");
-                for (String word: line) {
-                    wordSet.add(word);
+            Scanner reader = new Scanner(file);
+            while (reader.hasNext()) {
+                String next = reader.next();
+                next = next.replaceAll(",","");
+                if(!next.isEmpty()) {
+                    wordSet.add(next);
                 }
             }
 
