@@ -38,7 +38,7 @@ public class LoanDriver {
 
     public static void main(String[] args) {
 
-        LoanDriver loanDriver = new LoanDriver();
+        LoanDriver loanDriver = LoanDriver.getInstance();
         // Til læsning af input
         Scanner scanner = new Scanner(System.in);
 

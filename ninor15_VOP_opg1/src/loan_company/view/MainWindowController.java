@@ -153,6 +153,7 @@ public class MainWindowController {
             }
 
 
+
         }
     }
 
@@ -163,7 +164,11 @@ public class MainWindowController {
         }
 
         try {
-            Integer.parseInt(amountTextField.getText());
+            if (Integer.parseInt(amountTextField.getText()) <= 0) {
+                Logger.getGlobal().log(Level.INFO.INFO,"Loans have to be atleast 1");
+                result = false;
+                markFieldAsError(amountTextField);
+            }
         } catch (NumberFormatException e) {
             Logger.getGlobal().log(Level.INFO, "A non-number was entered for amount");
             result = false;
