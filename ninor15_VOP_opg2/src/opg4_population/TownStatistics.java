@@ -1,6 +1,9 @@
 package opg4_population;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * VOP eksamen F2014
@@ -36,7 +39,23 @@ public class TownStatistics {
     }
 
     public void readFile(String fileName) {
+        try {
+            Scanner scanner = new Scanner(new File(fileName));
+            while (scanner.hasNextLine()) {
+                Scanner lineScanner = new Scanner(scanner.nextLine());
+                lineScanner.useDelimiter(":");
+                lineScanner.nextInt();
+                lineScanner.nextInt();
+                DanishTown town = new DanishTown(lineScanner.next(),lineScanner.nextInt(),lineScanner.nextInt());
+                townList.add(town);
 
+                /*String[] values = scanner.nextLine().split(":");
+                townList.add(new DanishTown(values[2],Integer.valueOf(values[3]),Integer.valueOf(values[4])));*/
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("No such file");
+        }
     }
 
 }
