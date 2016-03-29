@@ -45,7 +45,7 @@ public class TownStatistics {
             Scanner scanner = new Scanner(new File(fileName));
             while (scanner.hasNextLine()) {
                 Scanner lineScanner = new Scanner(scanner.nextLine());
-                lineScanner.useDelimiter(":");
+                lineScanner.useDelimiter(";");
                 lineScanner.nextInt();
                 lineScanner.nextInt();
                 DanishTown town = new DanishTown(lineScanner.next(),lineScanner.nextInt(),lineScanner.nextInt());
