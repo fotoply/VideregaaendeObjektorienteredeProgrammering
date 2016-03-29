@@ -12,17 +12,18 @@ public class MatchingBrackets
     {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < expression.length(); i++) {
-            if(expression.charAt(i) == '{' || expression.charAt(i) == '(' || expression.charAt(i) == '[') {
-                stack.push(expression.charAt(i));
+            char currentChar = expression.charAt(i);
+            if(currentChar == '{' || currentChar == '(' || currentChar == '[') {
+                stack.push(currentChar);
             }
-            else if(expression.charAt(i) == '}' || expression.charAt(i) == ']' || expression.charAt(i) == ')' ) {
+            else if(currentChar == '}' || currentChar == ']' || currentChar == ')' ) {
                 if(stack.empty()) {
                     return false;
                 }
                 char popped = stack.pop();
-                if(!((popped == '{' && expression.charAt(i) == '}')
-                        || (popped == '(' && expression.charAt(i) == ')')
-                        || (popped=='[' && expression.charAt(i) == ']'))) {
+                if(!((popped == '{' && currentChar == '}')
+                        || (popped == '(' && currentChar == ')')
+                        || (popped=='[' && currentChar == ']'))) {
                     return false;
                 }
             }
