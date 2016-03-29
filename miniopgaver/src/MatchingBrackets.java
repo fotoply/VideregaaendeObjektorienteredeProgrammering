@@ -1,5 +1,3 @@
-package matching_brackets_exercise;
-
 //import matching_brackets_solution.*;
 import java.util.Scanner;
 import java.util.Stack;
