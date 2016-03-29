@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import opg2_numberplates.NumberPlates;
 
 /**
  * Created 3/29/16
@@ -19,7 +20,8 @@ public class MainWindowController {
 
     @FXML
     void plateSearchButtonClicked(ActionEvent event) {
-
+        NumberPlates numberPlates = new NumberPlates();
+        plateResultText.setText(numberPlates.validate(plateTextField.getText()));
     }
 
 }
