@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
 import javafx.scene.text.Text;
 import opg2_numberplates.NumberPlates;
 import opg4_population.TownStatistics;

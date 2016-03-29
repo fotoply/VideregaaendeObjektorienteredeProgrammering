@@ -24,7 +24,7 @@ public class DanishTown implements Comparable<DanishTown> {
     }
 
     public int getDiff() {
-        return population2012-population2011;
+        return population2012 - population2011;
     }
 
     @Override
@@ -34,10 +34,10 @@ public class DanishTown implements Comparable<DanishTown> {
 
     @Override
     public int compareTo(DanishTown o) {
-        if(this.getDiff() == o.getDiff()) {
+        if (this.getDiff() == o.getDiff()) {
             return this.getTownName().compareTo(o.getTownName());
         } else {
-            if(this.getDiff() > o.getDiff()) {
+            if (this.getDiff() > o.getDiff()) {
                 return 1;
             } else {
                 return -1;
