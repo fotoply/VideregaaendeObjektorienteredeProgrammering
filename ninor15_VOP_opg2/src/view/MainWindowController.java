@@ -33,6 +33,7 @@ public class MainWindowController {
 
     @FXML
     void populationReadFileClicked(ActionEvent event) {
+        townStatistics.readFile("Befolkning.txt");
         populationTextField.setText(townStatistics.toString());
     }
 
@@ -51,7 +52,6 @@ public class MainWindowController {
     void initialize() {
         numberPlates = new NumberPlates();
         townStatistics = new TownStatistics();
-        townStatistics.readFile("Befolkning.txt");
     }
 
 }
