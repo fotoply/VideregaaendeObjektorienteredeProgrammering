@@ -2,6 +2,7 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import opg2_numberplates.NumberPlates;
@@ -18,6 +19,24 @@ public class MainWindowController {
 
     @FXML
     private Text plateResultText;
+
+    @FXML
+    private TextArea populationTextField;
+
+    @FXML
+    void populationClearClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void populationReadFileClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void populationSortClicked(ActionEvent event) {
+
+    }
 
     @FXML
     void plateSearchButtonClicked(ActionEvent event) {
