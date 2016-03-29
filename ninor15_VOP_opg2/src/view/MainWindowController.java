@@ -12,6 +12,7 @@ import opg2_numberplates.NumberPlates;
  * @author Niels Norberg
  */
 public class MainWindowController {
+    private NumberPlates numberPlates;
     @FXML
     private TextField plateTextField;
 
@@ -20,8 +21,12 @@ public class MainWindowController {
 
     @FXML
     void plateSearchButtonClicked(ActionEvent event) {
-        NumberPlates numberPlates = new NumberPlates();
         plateResultText.setText(numberPlates.validate(plateTextField.getText()));
+    }
+
+    @FXML
+    void initialize() {
+        numberPlates = new NumberPlates();
     }
 
 }
