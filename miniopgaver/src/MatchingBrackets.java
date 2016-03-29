@@ -15,12 +15,14 @@ public class MatchingBrackets
             if(expression.charAt(i) == '{' || expression.charAt(i) == '(' || expression.charAt(i) == '[') {
                 stack.push(expression.charAt(i));
             }
-            if(expression.charAt(i) == '}' || expression.charAt(i) == ']' || expression.charAt(i) == ')' ) {
+            else if(expression.charAt(i) == '}' || expression.charAt(i) == ']' || expression.charAt(i) == ')' ) {
                 if(stack.empty()) {
                     return false;
                 }
                 char popped = stack.pop();
-                if(!((popped == '{' && expression.charAt(i) == '}') || (popped == '(' && expression.charAt(i) == ')') || (popped=='[' && expression.charAt(i) == ']'))) {
+                if(!((popped == '{' && expression.charAt(i) == '}')
+                        || (popped == '(' && expression.charAt(i) == ')')
+                        || (popped=='[' && expression.charAt(i) == ']'))) {
                     return false;
                 }
             }
