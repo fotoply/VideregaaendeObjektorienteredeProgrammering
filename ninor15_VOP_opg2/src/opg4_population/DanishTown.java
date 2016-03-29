@@ -13,7 +13,24 @@ package opg4_population;
  * @author erso
  */
 public class DanishTown implements Comparable<DanishTown> {
+    private String townName;
+    private int population2011;
+    private int population2012;
 
+    public DanishTown(String townName, int population2011, int population2012) {
+        this.townName = townName;
+        this.population2011 = population2011;
+        this.population2012 = population2012;
+    }
+
+    public int getDiff() {
+        return population2012-population2011;
+    }
+
+    @Override
+    public String toString() {
+        return townName + " Diff: " + getDiff() + "\n";
+    }
 
     @Override
     public int compareTo(DanishTown o) {
