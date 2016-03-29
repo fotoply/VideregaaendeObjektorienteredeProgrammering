@@ -1,6 +1,11 @@
 package opg2_numberplates;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 /**
  * VOP eksamen F2014
@@ -25,8 +30,7 @@ public class NumberPlates {
     };
 
     public NumberPlates() {
-        // opg 2a) initialiser districtMap
-
+       districtMap = new HashMap<>();
     }
 
     public static void main(String[] arg) {
@@ -41,22 +45,46 @@ public class NumberPlates {
     }
 
     public void readFile() {
-        // opg 2a) Indlaes filen og put i mappen
+        try {
+            Scanner scanner = new Scanner(new File("Nummerplader.txt"));
+            while (scanner.hasNextLine()) {
+                String[] values = scanner.nextLine().split(":");
+                districtMap.put(values[0].toLowerCase(),values[1]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("No such file");
+        }
     }
 
     public String validate(String plate) {
-        // Opg 2b) Tjek nummerpladen og returner anvendelse og politidistrikt
-        return null;
+        if(plate.length() != 7) {
+            return "Error: Incorrect length";
+        }
+        String area = validateDistrict(plate.substring(0,2));
+        String type = validateVehicleType(Integer.valueOf(plate.substring(2,8)));
+        if(area == "Area not found" || type == "Bad plate ID") {
+            return "Error: Invalid plate";
+        }
+
     }
 
     private String validateDistrict(String districtCode) {
-        // Opg 2b) Tjek kendingsbogstaver og returner politidistrikt
-        return null;
+        String area = districtMap.get(districtCode.toLowerCase());
+        if(!area.isEmpty()) {
+            return area;
+        } else {
+            return "Area not found";
+        }
     }
 
     private String validateVehicleType(int number) {
-        // Opg 2b) Tjek hvilket interval number ligger i og returner anvendelse
-        return null;
+        for (VehicleType type: vehicleTypes) {
+            if(type.isA(number)) {
+                return type.getVehicleType();
+            }
+        }
+        return "Bad plate ID";
     }
 
 }
