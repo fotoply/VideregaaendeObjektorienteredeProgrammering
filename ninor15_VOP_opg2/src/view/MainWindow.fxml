@@ -1,45 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="332.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8.0.40"
-            fx:controller="view.MainWindowController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="332.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
     <children>
-        <TabPane layoutX="100.0" layoutY="68.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE"
-                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="0.0">
+        <TabPane layoutX="100.0" layoutY="68.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab text="Nummerplade">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <GridPane hgap="5.0" layoutX="128.0" layoutY="44.0" prefHeight="367.0" prefWidth="600.0"
-                                          vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <GridPane hgap="5.0" layoutX="128.0" layoutY="44.0" prefHeight="367.0" prefWidth="600.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0"
-                                                           prefWidth="364.0"/>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0"
-                                                           prefWidth="69.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="364.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="69.0" />
                                     </columnConstraints>
                                     <rowConstraints>
-                                        <RowConstraints maxHeight="154.0" minHeight="0.0" prefHeight="91.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="284.0" minHeight="10.0" prefHeight="95.0"
-                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="154.0" minHeight="0.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="284.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <TextField fx:id="plateTextField"/>
-                                        <Button mnemonicParsing="false" onAction="#plateSearchButtonClicked"
-                                                text="Search" GridPane.columnIndex="1"/>
-                                        <Text fx:id="plateResultText" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              text="Result: " GridPane.rowIndex="1" GridPane.valignment="TOP"/>
+                                        <TextField fx:id="plateTextField" />
+                                        <Button mnemonicParsing="false" onAction="#plateSearchButtonClicked" text="Search" GridPane.columnIndex="1" />
+                                        <Text fx:id="plateResultText" strokeType="OUTSIDE" strokeWidth="0.0" text="Result: " GridPane.rowIndex="1" GridPane.valignment="TOP" />
                                     </children>
                                     <padding>
-                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                     </padding>
                                 </GridPane>
                             </children>
@@ -49,42 +41,28 @@
                 <Tab text="Indbyggertal">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="286.0" prefWidth="448.0">
-                            <children>
-                                <GridPane layoutX="39.0" layoutY="89.0" prefHeight="299.0" prefWidth="448.0"
-                                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0"
-                                                           prefWidth="163.0"/>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0"
-                                                           prefWidth="285.0"/>
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="97.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="104.0"
-                                                        vgrow="SOMETIMES"/>
-                                        <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="88.0"
-                                                        vgrow="SOMETIMES"/>
-                                    </rowConstraints>
-                                    <padding>
-                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                                    </padding>
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#populationReadFileClicked"
-                                                prefWidth="120.0" text="Read file" GridPane.halignment="CENTER"/>
-                                        <Button mnemonicParsing="false" onAction="#populationClearClicked"
-                                                prefWidth="120.0" text="Clear text" GridPane.halignment="CENTER"
-                                                GridPane.rowIndex="1"/>
-                                        <Button mnemonicParsing="false" onAction="#populationSortClicked"
-                                                prefWidth="120.0" text="Insert sorted" GridPane.halignment="CENTER"
-                                                GridPane.rowIndex="2"/>
-                                        <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
-                                                  GridPane.rowSpan="3"/>
-                                    </children>
-                                </GridPane>
-                            </children>
-                        </AnchorPane>
+                     <children>
+                        <GridPane layoutX="39.0" layoutY="89.0" prefHeight="299.0" prefWidth="448.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="163.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="285.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#populationReadFileClicked" prefWidth="120.0" text="Read file" GridPane.halignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#populationClearClicked" prefWidth="120.0" text="Clear text" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button mnemonicParsing="false" onAction="#populationSortClicked" prefWidth="120.0" text="Insert sorted" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <TextArea fx:id="populationTextField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="3" />
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
                     </content>
                 </Tab>
             </tabs>
