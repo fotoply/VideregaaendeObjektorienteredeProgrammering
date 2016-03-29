@@ -34,9 +34,18 @@ public class DanishTown implements Comparable<DanishTown> {
 
     @Override
     public int compareTo(DanishTown o) {
-
-        return 0;
+        if(this.getDiff() == o.getDiff()) {
+            return this.getTownName().compareTo(o.getTownName());
+        } else {
+            if(this.getDiff() > o.getDiff()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
     }
 
-
+    public String getTownName() {
+        return townName;
+    }
 }
