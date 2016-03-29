@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 /**
  * VOP eksamen F2014
@@ -30,7 +29,7 @@ public class NumberPlates {
     };
 
     public NumberPlates() {
-       districtMap = new HashMap<>();
+        districtMap = new HashMap<>();
         readFile();
     }
 
@@ -51,7 +50,7 @@ public class NumberPlates {
             Scanner scanner = new Scanner(new File("Nummerplader.txt"));
             while (scanner.hasNextLine()) {
                 String[] values = scanner.nextLine().split(":");
-                districtMap.put(values[0].toLowerCase(),values[1]);
+                districtMap.put(values[0].toLowerCase(), values[1]);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -60,11 +59,11 @@ public class NumberPlates {
     }
 
     public String validate(String plate) {
-        if(plate.length() != 7) {
+        if (plate.length() != 7) {
             return "Error: Incorrect length";
         }
-        String area = validateDistrict(plate.substring(0,2));
-        String type = validateVehicleType(Integer.valueOf(plate.substring(2,7)));
+        String area = validateDistrict(plate.substring(0, 2));
+        String type = validateVehicleType(Integer.valueOf(plate.substring(2, 7)));
 
         return type + " from " + area;
 
@@ -72,7 +71,7 @@ public class NumberPlates {
 
     private String validateDistrict(String districtCode) {
         String area = districtMap.get(districtCode.toLowerCase());
-        if(area != null) {
+        if (area != null) {
             return area;
         } else {
             return "Area not found";
@@ -80,8 +79,8 @@ public class NumberPlates {
     }
 
     private String validateVehicleType(int number) {
-        for (VehicleType type: vehicleTypes) {
-            if(type.isA(number)) {
+        for (VehicleType type : vehicleTypes) {
+            if (type.isA(number)) {
                 return type.getVehicleType();
             }
         }
