@@ -38,9 +38,9 @@ public class DanishTown implements Comparable<DanishTown> {
             return this.getTownName().compareTo(o.getTownName());
         } else {
             if(this.getDiff() > o.getDiff()) {
-                return -1;
-            } else {
                 return 1;
+            } else {
+                return -1;
             }
         }
     }
