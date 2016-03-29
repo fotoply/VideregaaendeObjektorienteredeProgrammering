@@ -3,6 +3,7 @@ package opg2_numberplates;
 /**
  * VOP eksamen F2014
  * Hjaelpe klasse til opgave 2
+ *
  * @author erso
  */
 public class VehicleType {
@@ -15,12 +16,12 @@ public class VehicleType {
         this.min = min;
         this.max = max;
     }
-    
-    public boolean isA(int number){
+
+    public boolean isA(int number) {
         return number >= min && number <= max;
     }
-    
-    public String getVehicleType(){
+
+    public String getVehicleType() {
         return type;
     }
 

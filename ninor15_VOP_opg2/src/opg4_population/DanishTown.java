@@ -9,19 +9,17 @@ package opg4_population;
 /**
  * VOP eksamen F2014
  * Tom klasse til opgave 4
+ *
  * @author erso
  */
-public class DanishTown implements Comparable<DanishTown>{
-    
-    
-    
+public class DanishTown implements Comparable<DanishTown> {
 
- 
+
     @Override
     public int compareTo(DanishTown o) {
-        
+
         return 0;
     }
 
- 
+
 }
