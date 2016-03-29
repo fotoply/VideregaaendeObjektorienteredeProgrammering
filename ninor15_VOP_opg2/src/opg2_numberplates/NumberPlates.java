@@ -42,6 +42,7 @@ public class NumberPlates {
         System.out.println("kc49900: " + pd.validate("kc49900"));
         System.out.println("KO47078: " + pd.validate("KO47078"));
         System.out.println("EN19022: " + pd.validate("EN19022"));
+        System.out.println("EN90022: " + pd.validate("EN90022"));
         System.out.println("EN190220: " + pd.validate("EN190220"));
     }
 
@@ -64,9 +65,6 @@ public class NumberPlates {
         }
         String area = validateDistrict(plate.substring(0,2));
         String type = validateVehicleType(Integer.valueOf(plate.substring(2,7)));
-        if(area == "Area not found" || type == "Bad plate ID") {
-            return "Error: Invalid plate";
-        }
 
         return type + " from " + area;
 
@@ -87,7 +85,7 @@ public class NumberPlates {
                 return type.getVehicleType();
             }
         }
-        return "Bad plate ID";
+        return "Bad plate ID: " + number;
     }
 
 }
