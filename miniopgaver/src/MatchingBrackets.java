@@ -8,11 +8,24 @@ import java.util.Stack;
  */
 public class MatchingBrackets
 {
-
-
-    public boolean ckeckBrackets(String expression)
+    Stack<Character> stack = new Stack<>();
+    public boolean checkBrackets(String expression)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < expression.length(); i++) {
+            if(expression.charAt(i) == '{' || expression.charAt(i) == '(' || expression.charAt(i) == '[') {
+                stack.push(expression.charAt(i));
+            }
+            if(expression.charAt(i) == '}' || expression.charAt(i) == ']' || expression.charAt(i) == ')' ) {
+                if(stack.empty()) {
+                    return false;
+                }
+                char popped = stack.pop();
+                if(!((popped == '{' && expression.charAt(i) == '}') || (popped == '(' && expression.charAt(i) == ')') || (popped=='[' && expression.charAt(i) == ']'))) {
+                    return false;
+                }
+            }
+        }
+        return stack.empty();
     }
 
     /**
@@ -28,7 +41,7 @@ public class MatchingBrackets
             System.out.println("Enter an expression with { [ ( ) ] }: ('q' to stop)");
             expression = in.nextLine();
             if(!expression.equalsIgnoreCase("q")){
-                boolean b = pc.ckeckBrackets(expression);
+                boolean b = pc.checkBrackets(expression);
                 System.out.println(expression + " has balanced brackets: " + b);
             }
         }while (!expression.equalsIgnoreCase("q"));
