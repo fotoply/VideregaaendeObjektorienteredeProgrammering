@@ -31,6 +31,7 @@ public class NumberPlates {
 
     public NumberPlates() {
        districtMap = new HashMap<>();
+        readFile();
     }
 
     public static void main(String[] arg) {
@@ -62,16 +63,18 @@ public class NumberPlates {
             return "Error: Incorrect length";
         }
         String area = validateDistrict(plate.substring(0,2));
-        String type = validateVehicleType(Integer.valueOf(plate.substring(2,8)));
+        String type = validateVehicleType(Integer.valueOf(plate.substring(2,7)));
         if(area == "Area not found" || type == "Bad plate ID") {
             return "Error: Invalid plate";
         }
+
+        return type + " from " + area;
 
     }
 
     private String validateDistrict(String districtCode) {
         String area = districtMap.get(districtCode.toLowerCase());
-        if(!area.isEmpty()) {
+        if(area != null) {
             return area;
         } else {
             return "Area not found";
