@@ -2,6 +2,8 @@ package opg4_population;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,7 +18,7 @@ public class TownStatistics {
     private List<DanishTown> townList;
 
     public TownStatistics() {
-
+        townList = new ArrayList<>();
     }
 
     public static void main(String[] args) {
@@ -35,7 +37,7 @@ public class TownStatistics {
     }
 
     public void sort() {
-
+        Collections.sort(townList);
     }
 
     public void readFile(String fileName) {
