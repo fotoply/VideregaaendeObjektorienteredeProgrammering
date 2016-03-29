@@ -41,8 +41,7 @@ public class TownStatistics {
     }
 
     public void readFile(String fileName) {
-        try {
-            Scanner scanner = new Scanner(new File(fileName));
+        try (Scanner scanner = new Scanner(new File(fileName))){
             while (scanner.hasNextLine()) {
                 String[] values = scanner.nextLine().split(";");
                 townList.add(new DanishTown(values[2],Integer.valueOf(values[3]),Integer.valueOf(values[4])));

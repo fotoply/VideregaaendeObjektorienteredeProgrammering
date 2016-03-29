@@ -46,8 +46,7 @@ public class NumberPlates {
     }
 
     public void readFile() {
-        try {
-            Scanner scanner = new Scanner(new File("Nummerplader.txt"));
+        try (Scanner scanner = new Scanner(new File("Nummerplader.txt"))){
             while (scanner.hasNextLine()) {
                 String[] values = scanner.nextLine().split(":");
                 districtMap.put(values[0].toLowerCase(), values[1]);
