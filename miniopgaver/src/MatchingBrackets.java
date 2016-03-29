@@ -8,9 +8,9 @@ import java.util.Stack;
  */
 public class MatchingBrackets
 {
-    Stack<Character> stack = new Stack<>();
     public boolean checkBrackets(String expression)
     {
+        Stack<Character> stack = new Stack<>();
         for (int i = 0; i < expression.length(); i++) {
             if(expression.charAt(i) == '{' || expression.charAt(i) == '(' || expression.charAt(i) == '[') {
                 stack.push(expression.charAt(i));
