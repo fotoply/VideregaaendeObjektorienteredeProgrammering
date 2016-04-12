@@ -49,6 +49,9 @@ public class NumberPlates {
         try (Scanner scanner = new Scanner(new File("Nummerplader.txt"))) {
             while (scanner.hasNextLine()) {
                 String[] values = scanner.nextLine().split(":");
+                if(values.length != 2) {
+                    continue;
+                }
                 districtMap.put(values[0].toLowerCase(), values[1]);
             }
         } catch (FileNotFoundException e) {
@@ -69,12 +72,7 @@ public class NumberPlates {
     }
 
     private String validateDistrict(String districtCode) {
-        String area = districtMap.get(districtCode.toLowerCase());
-        if (area != null) {
-            return area;
-        } else {
-            return "Area not found";
-        }
+        return districtMap.getOrDefault(districtCode.toLowerCase(), "Area not found");
     }
 
     private String validateVehicleType(int number) {

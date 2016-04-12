@@ -41,6 +41,7 @@ public class TownStatistics {
     }
 
     public void readFile(String fileName) {
+        townList.clear();
         try (Scanner scanner = new Scanner(new File(fileName))) {
             while (scanner.hasNextLine()) {
                 String[] values = scanner.nextLine().split(";");
