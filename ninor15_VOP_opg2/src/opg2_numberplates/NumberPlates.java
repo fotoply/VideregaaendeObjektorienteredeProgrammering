@@ -49,7 +49,7 @@ public class NumberPlates {
         try (Scanner scanner = new Scanner(new File("Nummerplader.txt"))) {
             while (scanner.hasNextLine()) {
                 String[] values = scanner.nextLine().split(":");
-                if(values.length != 2) {
+                if (values.length != 2) {
                     continue;
                 }
                 districtMap.put(values[0].toLowerCase(), values[1]);
