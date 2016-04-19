@@ -1,8 +1,8 @@
 package BigCitiesAssignment;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class BigCities {
 
@@ -14,7 +14,20 @@ public class BigCities {
     }
 
     private void readFile(String fileName) {
-        // Indlaes fra filen til mappen
+        try (Scanner scanner = new Scanner(new File(fileName))) {
+            while (scanner.hasNextLine()) {
+                String[] values = scanner.nextLine().split(";");
+                if (values.length != 4) {
+                    continue;
+                }
+                CityItem newCity = new CityItem(values[1],values[3],values[0]);
+                TreeSet set = (TreeSet) countryMap.getOrDefault(values[2], new TreeSet<>());
+                set.add(newCity);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("No such file");
+        }
     }
 
     public Map<String, Set<CityItem>> getCountryMap() {
