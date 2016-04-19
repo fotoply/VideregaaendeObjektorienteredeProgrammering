@@ -21,8 +21,10 @@ public class BigCities {
                     continue;
                 }
                 CityItem newCity = new CityItem(values[1],values[3],values[0]);
-                TreeSet set = (TreeSet) countryMap.getOrDefault(values[2], new TreeSet<>());
-                set.add(newCity);
+                if(!countryMap.containsKey(values[2])) {
+                    countryMap.put(values[2], new TreeSet<>());
+                }
+                countryMap.get(values[2]).add(newCity);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
