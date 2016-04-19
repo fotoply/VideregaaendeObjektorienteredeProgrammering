@@ -13,6 +13,21 @@ public class BigCities {
         readFile(fileName);
     }
 
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        BigCities bc = new BigCities("Biggest100Cities.txt");
+        System.out.println(bc);
+
+        // Udvidelse til lektion 8:
+//        CityObjectIO coio = new CityObjectIO("CitiesAsObject.obj");
+//        coio.writeObjectFile(bc.getCountryMap());
+
+
+    }
+
     private void readFile(String fileName) {
         try (Scanner scanner = new Scanner(new File(fileName))) {
             while (scanner.hasNextLine()) {
@@ -20,8 +35,8 @@ public class BigCities {
                 if (values.length != 4) {
                     continue;
                 }
-                CityItem newCity = new CityItem(values[1],values[3],values[0]);
-                if(!countryMap.containsKey(values[2])) {
+                CityItem newCity = new CityItem(values[1], values[3], values[0]);
+                if (!countryMap.containsKey(values[2])) {
                     countryMap.put(values[2], new TreeSet<>());
                 }
                 countryMap.get(values[2]).add(newCity);
@@ -33,27 +48,12 @@ public class BigCities {
     }
 
     public Map<String, Set<CityItem>> getCountryMap() {
-        
+
         return countryMap;
     }
 
     public String toString() {
         return countryMap.toString();
-    }
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-
-        BigCities bc = new BigCities("Biggest100Cities.txt");
-        System.out.println(bc);
-        
-        // Udvidelse til lektion 8:
-//        CityObjectIO coio = new CityObjectIO("CitiesAsObject.obj");
-//        coio.writeObjectFile(bc.getCountryMap());
-
-
     }
 
 }
