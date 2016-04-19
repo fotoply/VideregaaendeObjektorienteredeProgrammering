@@ -1,4 +1,4 @@
-﻿AA:København
+AA:København
 AH:København 
 AR:København 
 AT:Roskilde

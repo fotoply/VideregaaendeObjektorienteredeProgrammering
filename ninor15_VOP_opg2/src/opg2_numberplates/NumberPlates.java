@@ -83,5 +83,4 @@ public class NumberPlates {
         }
         return "Bad plate ID: " + number;
     }
-
 }
