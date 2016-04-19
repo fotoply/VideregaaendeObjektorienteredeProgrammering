@@ -1,5 +1,8 @@
 package BigCitiesAssignment;
 
+import java.util.Arrays;
+import java.util.StringJoiner;
+
 public class CityItem implements Comparable<CityItem> {
 	private String city;
 	private int population;
@@ -34,8 +37,7 @@ public class CityItem implements Comparable<CityItem> {
 
 	@Override
 	public int compareTo(CityItem o) {
-		// Opg 3c. implementer compareTo() metoden
-		return 0;
+		return getCity().compareTo(o.getCity());
 	}
 
 	public static void main(String[] args) {
@@ -51,12 +53,12 @@ public class CityItem implements Comparable<CityItem> {
 		testArray[2] = new CityItem("KOBENHAVN", "499000", "99");
 
 		// Til test af opgave 3c
-//		System.out.println("Usorteret:");
-//		System.out.println(Arrays.toString(testArray));
-//
-//		Arrays.sort(testArray);
-//		System.out.println("Sorteret:");
-//		System.out.println(Arrays.toString(testArray));
+		System.out.println("Usorteret:");
+		System.out.println(Arrays.toString(testArray));
+
+		Arrays.sort(testArray);
+		System.out.println("Sorteret:");
+		System.out.println(Arrays.toString(testArray));
 
 	}
 

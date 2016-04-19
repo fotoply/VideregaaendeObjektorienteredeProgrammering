@@ -2,13 +2,14 @@ package BigCitiesAssignment;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class BigCities {
 
     private Map<String, Set<CityItem>> countryMap;
 
     public BigCities(String fileName) {
-        //Initialiser countryMap til en sorteret mappe
+        countryMap = new TreeMap<>();
         readFile(fileName);
     }
 
