@@ -22,8 +22,8 @@ public class BigCities {
         System.out.println(bc);
 
         // Udvidelse til lektion 8:
-//        CityObjectIO coio = new CityObjectIO("CitiesAsObject.obj");
-//        coio.writeObjectFile(bc.getCountryMap());
+        CityObjectIO coio = new CityObjectIO("CitiesAsObject.obj");
+        coio.writeObjectFile(bc.getCountryMap());
 
 
     }

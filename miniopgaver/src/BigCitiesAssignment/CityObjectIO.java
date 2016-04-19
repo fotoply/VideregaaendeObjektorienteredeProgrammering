@@ -1,6 +1,6 @@
 package BigCitiesAssignment;
 
-import java.io.File;
+import java.io.*;
 import java.util.Map;
 
 /**
@@ -14,7 +14,7 @@ public class CityObjectIO {
     private File file;
 
     public CityObjectIO(String fName) {
-
+        file = new File(fName);
     }
 
     public static void main(String[] a) {
@@ -24,7 +24,11 @@ public class CityObjectIO {
     }
 
     public void writeObjectFile(Map<?, ?> map) {
-
+        try(ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(file))) {
+            stream.writeObject(map);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Map<?, ?> readObjectfile() {
