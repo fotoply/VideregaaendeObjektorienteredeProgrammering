@@ -6,8 +6,7 @@ public class CityItem implements Comparable<CityItem> {
 	private int range;
 
 	public CityItem(String city, String population, String range) {
-		// opg 3a konverter parametrene, s� constructoren herunder kan kaldes
-
+		this(city, Integer.valueOf(population), Integer.valueOf(range));
 	}
 
 	public CityItem(String city, int population, int range) {
@@ -30,8 +29,7 @@ public class CityItem implements Comparable<CityItem> {
 
 	@Override
 	public String toString() {
-		// Opg 3b. Implementer toString() metoden
-		return "";
+		return String.format("%s: population %d\trange %d", getCity(), getPopulation(), getRange());
 	}
 
 	@Override
