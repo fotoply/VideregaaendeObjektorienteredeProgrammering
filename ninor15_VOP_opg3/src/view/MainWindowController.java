@@ -43,6 +43,7 @@ public class MainWindowController {
             amount = Integer.valueOf(arraysAmountField.getText());
         } catch (NumberFormatException e) {
             System.out.println("NOT A NUMBER");
+            arraysTextArea.setText("Invalid number");
             return;
         }
 
@@ -55,6 +56,8 @@ public class MainWindowController {
         if(arrayTester != null) {
             arrayTester.reverse();
             arraysTextArea.appendText(arrayTester.toString());
+        } else {
+            arraysTextArea.setText("Fill the array first");
         }
     }
 
@@ -63,6 +66,8 @@ public class MainWindowController {
         if(arrayTester != null) {
             arrayTester.sort();
             arraysTextArea.appendText(arrayTester.toString());
+        } else {
+            arraysTextArea.setText("Fill the array first");
         }
     }
 
