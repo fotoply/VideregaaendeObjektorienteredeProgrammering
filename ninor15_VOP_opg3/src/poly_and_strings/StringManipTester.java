@@ -17,14 +17,14 @@ public class StringManipTester {
         String input = "Test AF PolyMORPHISM!";
         
         // Fjern udkommenteringerne efterhånden som klasserne implementeres
-//        manip = new ToLowerManip(input);
-//        System.out.println(manip);
+        manip = new ToLowerManip(input);
+        System.out.println(manip);
       
-//        manip = new ToUpperManip(input);
-//        System.out.println(manip);
+        manip = new ToUpperManip(input);
+        System.out.println(manip);
        
-//        manip = new FlipUpperLowerManip(input);
-//        System.out.println(manip);
+        manip = new FlipUpperLowerManip(input);
+        System.out.println(manip);
        
     }
     
