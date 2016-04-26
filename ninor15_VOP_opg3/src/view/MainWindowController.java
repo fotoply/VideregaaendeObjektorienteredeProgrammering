@@ -38,12 +38,16 @@ public class MainWindowController {
     }
 
     public void updateOutput() {
-        if(caseToggleGroup.getSelectedToggle().equals(flipCaseToggle)) {
-            inputString = new FlipUpperLowerManip(inputTextField.getText());
-        } else if(caseToggleGroup.getSelectedToggle().equals(lowerCaseToggle)) {
-            inputString = new ToLowerManip(inputTextField.getText());
+        if(caseToggleGroup != null && caseToggleGroup.getSelectedToggle() != null) {
+            if (caseToggleGroup.getSelectedToggle().equals(flipCaseToggle)) {
+                inputString = new FlipUpperLowerManip(inputTextField.getText());
+            } else if (caseToggleGroup.getSelectedToggle().equals(lowerCaseToggle)) {
+                inputString = new ToLowerManip(inputTextField.getText());
+            } else {
+                inputString = new ToUpperManip(inputTextField.getText());
+            }
         } else {
-            inputString = new ToUpperManip(inputTextField.getText());
+            inputString = new ToLowerManip(inputTextField.getText());
         }
 
         outputTextField.setText(inputString.manip());
