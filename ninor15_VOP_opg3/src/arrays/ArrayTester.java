@@ -1,8 +1,7 @@
 package arrays;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.StringJoiner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Udleveret klasse erklæring med main() metode til VOP re-eksamen 20. august 2014
@@ -17,11 +16,11 @@ public class ArrayTester {
 
     // Udleveret metode, som bytter om på 2 elementer i arrayet.
     // Bør benyttes ved løsning af opg 3d
-//    public void swap(int fromIndex, int toIndex) {
-//        int temp = intArray[fromIndex];
-//        intArray[fromIndex] = intArray[toIndex];
-//        intArray[toIndex] = temp;
-//    }
+    public void swap(int fromIndex, int toIndex) {
+        int temp = intArray[fromIndex];
+        intArray[fromIndex] = intArray[toIndex];
+        intArray[toIndex] = temp;
+    }
     
 
 
@@ -32,12 +31,22 @@ public class ArrayTester {
         ArrayTester arrayTester = new ArrayTester(size);
         System.out.println("constructor: " + arrayTester);
 
-//        arrayTester.sort();
-//        System.out.println("sorted: " + arrayTester);
+        arrayTester.sort();
+        System.out.println("sorted: " + arrayTester);
 
-//        arrayTester.reverse();
-//        System.out.println("reverse: " + arrayTester);
+        arrayTester.reverse();
+        System.out.println("reverse: " + arrayTester);
 
+    }
+
+    public void sort() {
+        Arrays.sort(intArray);
+    }
+
+    public void reverse() {
+        for (int i = 0; i < intArray.length/2; i++) {
+            swap(i,intArray.length-1-i);
+        }
     }
 
     public ArrayTester(int size) {
