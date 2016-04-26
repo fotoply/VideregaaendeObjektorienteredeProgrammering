@@ -15,15 +15,15 @@ public class FlipUpperLowerManip extends AbstractManiplulable {
 
     @Override
     public String manip() {
-        char[] newStringAsArray = new char[originalString.length()];
+        StringBuilder newString = new StringBuilder();
         for (int i = 0; i < originalString.length(); i++) {
             char currentChar = originalString.charAt(i);
             if(Character.isUpperCase(currentChar)) {
-                newStringAsArray[i] = Character.toLowerCase(currentChar);
+                newString.append(Character.toLowerCase(currentChar));
             } else {
-                newStringAsArray[i] = Character.toUpperCase(currentChar);
+                newString.append(Character.toUpperCase(currentChar));
             }
         }
-        return Arrays.toString(newStringAsArray);
+        return newString.toString();
     }
 }
