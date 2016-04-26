@@ -59,6 +59,6 @@ public class ArrayTester {
         }
         builder.append("\n---------------------\n");
 
-        return builder.toString();
+        return builder.toString().replace(", \n", "\n");
     }
 }
