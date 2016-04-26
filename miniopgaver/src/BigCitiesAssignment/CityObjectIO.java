@@ -2,7 +2,6 @@ package BigCitiesAssignment;
 
 import java.io.*;
 import java.util.Map;
-import java.util.stream.Stream;
 
 /**
  * Udvidelse af "opgave i klassen lektion 7, F14 "BigCities"
@@ -19,8 +18,8 @@ public class CityObjectIO {
     }
 
     public static void main(String[] a) {
-        CityObjectIO coio = new CityObjectIO("CitiesAsObject.obj");
-        Map<?, ?> map = coio.readObjectfile();
+        CityObjectIO cityObjectIO = new CityObjectIO("CitiesAsObject.obj");
+        Map<?, ?> map = cityObjectIO.readObjectfile();
         System.out.println("Map: " + map);
     }
 
