@@ -1,17 +1,15 @@
 package view;
 
+import arrays.ArrayTester;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import poly_and_strings.FlipUpperLowerManip;
-import poly_and_strings.StringManipulable;
-import poly_and_strings.ToLowerManip;
-import poly_and_strings.ToUpperManip;
+import javafx.scene.control.*;
+import poly_and_strings.*;
 
 public class MainWindowController {
 
     StringManipulable inputString;
+    ArrayTester arrayTester;
 
     @FXML
     private TextField inputTextField;
@@ -30,6 +28,44 @@ public class MainWindowController {
 
     @FXML
     private RadioButton flipCaseToggle;
+
+    @FXML
+    private TextArea arraysTextArea;
+
+    @FXML
+    private TextField arraysAmountField;
+
+    @FXML
+    void fillArrays(ActionEvent event) {
+        int amount;
+
+        try {
+            amount = Integer.valueOf(arraysAmountField.getText());
+        } catch (NumberFormatException e) {
+            System.out.println("NOT A NUMBER");
+            return;
+        }
+
+        arrayTester = new ArrayTester(amount);
+        arraysTextArea.setText(arrayTester.toString());
+    }
+
+    @FXML
+    void reverseArrays(ActionEvent event) {
+        if(arrayTester != null) {
+            arrayTester.reverse();
+            arraysTextArea.appendText(arrayTester.toString());
+        }
+    }
+
+    @FXML
+    void sortArrays(ActionEvent event) {
+        if(arrayTester != null) {
+            arrayTester.sort();
+            arraysTextArea.appendText(arrayTester.toString());
+        }
+    }
+
 
     @FXML
     void initialize() {
