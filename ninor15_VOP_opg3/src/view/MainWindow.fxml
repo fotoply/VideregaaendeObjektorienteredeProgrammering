@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,11 +9,50 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane layoutX="80.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane layoutX="80.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Poly og Strings">
+          <Tab closable="false" text="Poly og Strings">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane maxHeight="120.0" minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="600.0">
+                     <children>
+                        <GridPane layoutX="175.0" layoutY="104.0" prefHeight="100.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Input text" />
+                                    <TextField fx:id="inputTextField" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Output text" />
+                                    <TextField fx:id="outputTextField" editable="false" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox spacing="10.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <RadioButton fx:id="upperCaseToggle" mnemonicParsing="false" text="Uppercase">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="caseToggleGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="lowerCaseToggle" mnemonicParsing="false" text="Lowercase" toggleGroup="$caseToggleGroup" />
+                                    <RadioButton fx:id="flipCaseToggle" mnemonicParsing="false" text="Flip upper and lower" toggleGroup="$caseToggleGroup" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
           <Tab text="Array Test">
