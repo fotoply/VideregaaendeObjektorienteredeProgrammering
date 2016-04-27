@@ -36,6 +36,22 @@ public class MainWindowController {
     private TextField arraysAmountField;
 
     @FXML
+    private TextArea urbanTextArea;
+
+    @FXML
+    private TextField fileChosenTextField;
+
+    @FXML
+    void chooseFileClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void runClicked(ActionEvent event) {
+
+    }
+
+    @FXML
     void fillArrays(ActionEvent event) {
         int amount;
 
