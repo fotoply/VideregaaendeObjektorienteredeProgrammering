@@ -28,7 +28,12 @@ public class UrbanPopulationStatistics {
     private void readFile() {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
+                String[] inputs = scanner.nextLine().split("/");
 
+                String name = inputs[0];
+                int pop1980 = Integer.parseInt(inputs[1]);
+                int pop2008 = Integer.parseInt(inputs[4]);
+                popSet.add(new UrbanPopulation(name, pop1980, pop2008));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
