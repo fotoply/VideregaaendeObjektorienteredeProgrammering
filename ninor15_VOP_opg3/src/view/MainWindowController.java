@@ -1,15 +1,22 @@
 package view;
 
 import arrays.ArrayTester;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
 import poly_and_strings.*;
+import urban_population.UrbanPopulationStatistics;
+
+import java.io.File;
 
 public class MainWindowController {
 
     StringManipulable inputString;
     ArrayTester arrayTester;
+    UrbanPopulationStatistics urbanPopulationStatistics;
+    StringProperty fileChosen;
 
     @FXML
     private TextField inputTextField;
@@ -43,12 +50,15 @@ public class MainWindowController {
 
     @FXML
     void chooseFileClicked(ActionEvent event) {
-
+        FileChooser chooser = new FileChooser();
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text based files", "*.txt"));
+        fileChosen.setValue(chooser.showOpenDialog(null).getAbsolutePath());
     }
 
     @FXML
     void runClicked(ActionEvent event) {
-
+        urbanPopulationStatistics = new UrbanPopulationStatistics(fileChosen.getValue());
+        urbanTextArea.setText(urbanPopulationStatistics.toString());
     }
 
     @FXML
@@ -92,6 +102,7 @@ public class MainWindowController {
     void initialize() {
         inputTextField.textProperty().addListener((observable, oldValue, newValue) -> {updateOutput();});
         caseToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {updateOutput();});
+        fileChosen.addListener((observable, oldValue, newValue) -> {fileChosenTextField.setText(newValue);});
     }
 
     public void updateOutput() {
