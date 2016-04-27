@@ -1,7 +1,10 @@
 package urban_population;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author fotoply
@@ -12,24 +15,26 @@ public class UrbanPopulationStatistics {
     private File file;
 
     public UrbanPopulationStatistics(String fileName) {
-        // Initialisering af variable
-
+        popSet = new TreeSet<>();
+        file = new File(fileName);
         readFile();
     }
 
-    //Udleveret test-metode
     public static void main(String[] args) {
         UrbanPopulationStatistics stats = new UrbanPopulationStatistics("ByBefolkning.txt");
         System.out.println(stats);
     }
 
     private void readFile() {
-        // Til indlæsning af data fra file,
-        // dannelse af objekter af klassen UrbanPopulation
-        // og indsættelse af disse i popSet
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    // Udleveret toString() metode, som giver en "pæn" formatering.
     @Override
     public String toString() {
         String s = popSet.toString().replaceAll(", ", "");
