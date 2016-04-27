@@ -17,7 +17,7 @@ public class UrbanPopulation implements Comparable<UrbanPopulation> {
 
     @Override
     public String toString() {
-        return String.format("%s: \t1980: %02d \t2008: %02d \tDiff: %02d", name, populationPercentage1980, populationPercentage2008, getDiff());
+        return String.format("%s: \t1980: %02d \t2008: %02d \tDiff: %02d\n", name, populationPercentage1980, populationPercentage2008, getDiff());
     }
 
     private int getDiff() {
