@@ -3,9 +3,7 @@ package poly_and_strings;
 import java.util.Arrays;
 
 /**
- * Created 4/26/16
- *
- * @author Niels Norberg
+ * @author fotoply
  */
 public class FlipUpperLowerManip extends AbstractManiplulable {
 

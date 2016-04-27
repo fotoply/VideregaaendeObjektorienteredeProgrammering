@@ -15,8 +15,7 @@ public class StringManipTester {
     public static void main(String[] args) {
         StringManipulable manip;
         String input = "Test AF PolyMORPHISM!";
-        
-        // Fjern udkommenteringerne efterhånden som klasserne implementeres
+
         manip = new ToLowerManip(input);
         System.out.println(manip);
       
