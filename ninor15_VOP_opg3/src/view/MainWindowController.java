@@ -1,6 +1,7 @@
 package view;
 
 import arrays.ArrayTester;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,7 +53,10 @@ public class MainWindowController {
     void chooseFileClicked(ActionEvent event) {
         FileChooser chooser = new FileChooser();
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text based files", "*.txt"));
-        fileChosen.setValue(chooser.showOpenDialog(null).getAbsolutePath());
+        File chosenFile = chooser.showOpenDialog(null);
+        if(chosenFile != null) {
+            fileChosen.setValue(chosenFile.getAbsolutePath());
+        }
     }
 
     @FXML
@@ -102,7 +106,9 @@ public class MainWindowController {
     void initialize() {
         inputTextField.textProperty().addListener((observable, oldValue, newValue) -> {updateOutput();});
         caseToggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {updateOutput();});
+        fileChosen = new SimpleStringProperty();
         fileChosen.addListener((observable, oldValue, newValue) -> {fileChosenTextField.setText(newValue);});
+        fileChosen.setValue("ByBefolkning.txt");
     }
 
     public void updateOutput() {
