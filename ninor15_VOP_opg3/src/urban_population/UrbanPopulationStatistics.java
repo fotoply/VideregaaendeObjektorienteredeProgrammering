@@ -4,9 +4,7 @@ import java.io.File;
 import java.util.Set;
 
 /**
- * Udleveret kodeskelet til VOP re-eksamen 20. august 2014
- *
- * @author erso
+ * @author fotoply
  */
 public class UrbanPopulationStatistics {
 

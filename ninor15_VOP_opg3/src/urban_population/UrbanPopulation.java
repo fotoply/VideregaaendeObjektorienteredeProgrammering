@@ -1,9 +1,7 @@
 package urban_population;
 
 /**
- * Udleveret kodeskelet til VOP re-eksamen 20. august 2014
- *
- * @author erso
+ * @author fotoply
  */
 public class UrbanPopulation implements Comparable<UrbanPopulation> {
 
@@ -22,7 +20,10 @@ public class UrbanPopulation implements Comparable<UrbanPopulation> {
 
     @Override
     public int compareTo(UrbanPopulation o) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(getDiff() == 0) {
+            return name.compareTo(o.name);
+        }
+        return Integer.compare(getDiff(), o.getDiff());
     }
 
 
