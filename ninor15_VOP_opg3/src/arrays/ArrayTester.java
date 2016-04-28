@@ -32,7 +32,7 @@ public class ArrayTester {
         System.out.println("reverse: " + arrayTester);
     }
 
-    public void swap(int fromIndex, int toIndex) {
+    private void swap(int fromIndex, int toIndex) {
         int temp = intArray[fromIndex];
         intArray[fromIndex] = intArray[toIndex];
         intArray[toIndex] = temp;
