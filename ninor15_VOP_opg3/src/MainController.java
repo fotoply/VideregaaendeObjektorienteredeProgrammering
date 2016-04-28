@@ -1,7 +1,5 @@
 /**
- * Created 4/26/16
- *
- * @author Niels Norberg
+ * @author fotoply
  */
 
 import javafx.application.Application;

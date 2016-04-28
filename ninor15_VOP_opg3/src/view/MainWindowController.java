@@ -20,10 +20,8 @@ import java.io.File;
 
 public class MainWindowController {
 
-    StringManipulable inputString;
-    ArrayTester arrayTester;
-    UrbanPopulationStatistics urbanPopulationStatistics;
-    StringProperty fileChosen;
+    private ArrayTester arrayTester;
+    private StringProperty fileChosen;
 
     @FXML
     private TextField inputTextField;
@@ -67,7 +65,7 @@ public class MainWindowController {
 
     @FXML
     void runClicked(ActionEvent event) {
-        urbanPopulationStatistics = new UrbanPopulationStatistics(fileChosen.getValue());
+        UrbanPopulationStatistics urbanPopulationStatistics = new UrbanPopulationStatistics(fileChosen.getValue());
         urbanTextArea.setText(urbanPopulationStatistics.toString());
     }
 
@@ -123,7 +121,8 @@ public class MainWindowController {
         fileChosen.setValue("ByBefolkning.txt");
     }
 
-    public void updateOutput() {
+    private void updateOutput() {
+        StringManipulable inputString;
         if (caseToggleGroup != null && caseToggleGroup.getSelectedToggle() != null) {
             if (caseToggleGroup.getSelectedToggle().equals(flipCaseToggle)) {
                 inputString = new FlipUpperLowerManip(inputTextField.getText());
