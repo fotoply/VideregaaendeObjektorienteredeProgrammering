@@ -1,7 +1,5 @@
 package poly_and_strings;
 
-import java.util.Arrays;
-
 /**
  * Udleveret test klasse til VOP re-eksamen 20. august 2014
  *
@@ -18,13 +16,13 @@ public class StringManipTester {
 
         manip = new ToLowerManip(input);
         System.out.println(manip);
-      
+
         manip = new ToUpperManip(input);
         System.out.println(manip);
-       
+
         manip = new FlipUpperLowerManip(input);
         System.out.println(manip);
-       
+
     }
-    
+
 }

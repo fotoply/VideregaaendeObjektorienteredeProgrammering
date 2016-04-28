@@ -1,7 +1,5 @@
 package poly_and_strings;
 
-import java.util.Arrays;
-
 /**
  * @author fotoply
  */
@@ -16,7 +14,7 @@ public class FlipUpperLowerManip extends AbstractManiplulable {
         StringBuilder newString = new StringBuilder();
         for (int i = 0; i < originalString.length(); i++) {
             char currentChar = originalString.charAt(i);
-            if(Character.isUpperCase(currentChar)) {
+            if (Character.isUpperCase(currentChar)) {
                 newString.append(Character.toLowerCase(currentChar));
             } else {
                 newString.append(Character.toUpperCase(currentChar));

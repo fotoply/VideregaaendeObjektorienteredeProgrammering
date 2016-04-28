@@ -21,12 +21,12 @@ public class UrbanPopulation implements Comparable<UrbanPopulation> {
     }
 
     private int getDiff() {
-        return populationPercentage2008-populationPercentage1980;
+        return populationPercentage2008 - populationPercentage1980;
     }
 
     @Override
     public int compareTo(UrbanPopulation o) {
-        if(getDiff() == 0) {
+        if (getDiff() == 0) {
             return name.compareTo(o.name);
         }
         return Integer.compare(getDiff(), o.getDiff());

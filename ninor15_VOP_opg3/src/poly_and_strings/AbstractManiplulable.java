@@ -5,7 +5,7 @@ package poly_and_strings;
  *
  * @author erso
  */
-public abstract class AbstractManiplulable implements StringManipulable{
+public abstract class AbstractManiplulable implements StringManipulable {
 
     protected String originalString;
 
@@ -16,11 +16,8 @@ public abstract class AbstractManiplulable implements StringManipulable{
     @Override
     public String toString() {
         return getClass().getName() + ":\n"
-                +originalString + " -> " + manip();
+                + originalString + " -> " + manip();
     }
-    
-    
-    
-    
+
 
 }
