@@ -9,11 +9,10 @@ import java.util.Random;
 public class ArrayTester {
 
     private static final int MAX = 100;
-    private Random generator;
+    private static Random generator = new Random();
     private int[] intArray;
 
     public ArrayTester(int size) {
-        generator = new Random();
         intArray = new int[size];
         for (int i = 0; i < size; i++) {
             intArray[i] = generator.nextInt(ArrayTester.MAX);
