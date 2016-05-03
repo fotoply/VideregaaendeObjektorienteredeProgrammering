@@ -86,22 +86,30 @@ public class MainWindowController {
 
     @FXML
     void reverseArrays(ActionEvent event) {
-        if (arrayTester != null) {
+        if (isArrayTesterValid()) {
             arrayTester.reverse();
             arraysTextArea.appendText(arrayTester.toString());
         } else {
-            arraysTextArea.setText("Fill the array first");
+            arrayTesterInvalid();
         }
+    }
+
+    private void arrayTesterInvalid() {
+        arraysTextArea.setText("Fill the array first");
     }
 
     @FXML
     void sortArrays(ActionEvent event) {
-        if (arrayTester != null) {
+        if (isArrayTesterValid()) {
             arrayTester.sort();
             arraysTextArea.appendText(arrayTester.toString());
         } else {
-            arraysTextArea.setText("Fill the array first");
+            arrayTesterInvalid();
         }
+    }
+
+    private boolean isArrayTesterValid() {
+        return arrayTester != null;
     }
 
 
@@ -124,6 +132,7 @@ public class MainWindowController {
     private void updateOutput() {
         StringManipulable outputManipulator;
         String inputText = inputTextField.getText();
+
         if (isToggleGroupValid()) {
             if (isFlipCaseToggled()) {
                 outputManipulator = new FlipUpperLowerManip(inputText);
