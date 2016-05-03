@@ -9,6 +9,7 @@ import java.util.Random;
 public class ArrayTester {
 
     private static final int MAX = 100;
+    public static final int INDEXES_PER_LINE = 8;
     private static Random generator = new Random();
     private int[] intArray;
 
@@ -51,13 +52,21 @@ public class ArrayTester {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < intArray.length; i++) {
-            if (i % 8 == 0) {
+            if (shouldAppendNewline(i)) {
                 builder.append("\n");
             }
             builder.append(String.format("%02d, ", intArray[i]));
         }
         builder.append("\n---------------------\n");
 
-        return builder.toString().replace(", \n", "\n");
+        return trimEnds(builder.toString());
+    }
+
+    private boolean shouldAppendNewline(int currentElementIndex) {
+        return currentElementIndex % INDEXES_PER_LINE == 0;
+    }
+
+    private String trimEnds(String string) {
+        return string.replace(", \n", "\n");
     }
 }
