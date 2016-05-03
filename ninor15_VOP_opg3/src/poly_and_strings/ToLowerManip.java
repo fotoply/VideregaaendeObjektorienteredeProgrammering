@@ -3,7 +3,7 @@ package poly_and_strings;
 /**
  * @author fotoply
  */
-public class ToLowerManip extends AbstractManiplulable {
+public class ToLowerManip extends AbstractManipulable {
 
     public ToLowerManip(String originalString) {
         super(originalString);

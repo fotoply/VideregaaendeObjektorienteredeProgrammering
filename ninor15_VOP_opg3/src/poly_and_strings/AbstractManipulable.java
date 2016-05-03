@@ -5,11 +5,11 @@ package poly_and_strings;
  *
  * @author erso
  */
-public abstract class AbstractManiplulable implements StringManipulable {
+public abstract class AbstractManipulable implements StringManipulable {
 
     protected String originalString;
 
-    public AbstractManiplulable(String originalString) {
+    public AbstractManipulable(String originalString) {
         this.originalString = originalString;
     }
 
