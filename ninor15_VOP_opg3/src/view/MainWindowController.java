@@ -122,20 +122,21 @@ public class MainWindowController {
     }
 
     private void updateOutput() {
-        StringManipulable inputString;
+        StringManipulable outputManipulator;
+        String inputText = inputTextField.getText();
         if (isToggleGroupValid()) {
             if (isFlipCaseToggled()) {
-                inputString = new FlipUpperLowerManip(inputTextField.getText());
+                outputManipulator = new FlipUpperLowerManip(inputText);
             } else if (isLowerCaseToggled()) {
-                inputString = new ToLowerManip(inputTextField.getText());
+                outputManipulator = new ToLowerManip(inputText);
             } else {
-                inputString = new ToUpperManip(inputTextField.getText());
+                outputManipulator = new ToUpperManip(inputText);
             }
         } else { // IF no toggle was chosen just default to lowercase
-            inputString = new ToLowerManip(inputTextField.getText());
+            outputManipulator = new ToLowerManip(inputText);
         }
 
-        outputTextField.setText(inputString.manip());
+        outputTextField.setText(outputManipulator.manip());
     }
 
     private boolean isToggleGroupValid() {
