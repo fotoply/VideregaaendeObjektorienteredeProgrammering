@@ -12,8 +12,7 @@ public class FlipUpperLowerManip extends AbstractManipulable {
     @Override
     public String manip() {
         StringBuilder newString = new StringBuilder();
-        for (int i = 0; i < originalString.length(); i++) {
-            char currentChar = originalString.charAt(i);
+        for (char currentChar : originalString.toCharArray()) {
             if (Character.isUpperCase(currentChar)) {
                 newString.append(Character.toLowerCase(currentChar));
             } else {
