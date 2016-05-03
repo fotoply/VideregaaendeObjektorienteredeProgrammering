@@ -9,7 +9,7 @@ import java.util.Random;
 public class ArrayTester {
 
     private static final int MAX = 100;
-    public static final int INDEXES_PER_LINE = 8;
+    private static final int INDEXES_PER_LINE = 8;
     private static Random generator = new Random();
     private int[] intArray;
 
