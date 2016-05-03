@@ -33,6 +33,7 @@ public class UrbanPopulationStatistics {
                 String name = inputs[0];
                 int pop1980 = Integer.parseInt(inputs[1]);
                 int pop2008 = Integer.parseInt(inputs[4]);
+
                 popSet.add(new UrbanPopulation(name, pop1980, pop2008));
             }
         } catch (FileNotFoundException e) {

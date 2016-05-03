@@ -76,7 +76,6 @@ public class MainWindowController {
         try {
             amount = Integer.valueOf(arraysAmountField.getText());
         } catch (NumberFormatException e) {
-            System.out.println("NOT A NUMBER");
             arraysTextArea.setText("Invalid number");
             return;
         }
@@ -118,24 +117,37 @@ public class MainWindowController {
         fileChosen.addListener((observable, oldValue, newValue) -> {
             fileChosenTextField.setText(newValue);
         });
+
         fileChosen.setValue("ByBefolkning.txt");
     }
 
     private void updateOutput() {
         StringManipulable inputString;
-        if (caseToggleGroup != null && caseToggleGroup.getSelectedToggle() != null) {
-            if (caseToggleGroup.getSelectedToggle().equals(flipCaseToggle)) {
+        if (isToggleGroupValid()) {
+            if (isFlipCaseToggled()) {
                 inputString = new FlipUpperLowerManip(inputTextField.getText());
-            } else if (caseToggleGroup.getSelectedToggle().equals(lowerCaseToggle)) {
+            } else if (isLowerCaseToggled()) {
                 inputString = new ToLowerManip(inputTextField.getText());
             } else {
                 inputString = new ToUpperManip(inputTextField.getText());
             }
-        } else {
+        } else { // IF no toggle was chosen just default to lowercase
             inputString = new ToLowerManip(inputTextField.getText());
         }
 
         outputTextField.setText(inputString.manip());
+    }
+
+    private boolean isToggleGroupValid() {
+        return caseToggleGroup != null && caseToggleGroup.getSelectedToggle() != null;
+    }
+
+    private boolean isLowerCaseToggled() {
+        return caseToggleGroup.getSelectedToggle().equals(lowerCaseToggle);
+    }
+
+    private boolean isFlipCaseToggled() {
+        return caseToggleGroup.getSelectedToggle().equals(flipCaseToggle);
     }
 
 }
